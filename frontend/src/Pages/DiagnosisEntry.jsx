@@ -1,272 +1,274 @@
-import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+"use client"
+
+import { useState, useEffect } from "react"
+import {
+  Card, CardContent, CardHeader, CardTitle, CardDescription
+} from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
-import { 
-  Search, 
-  Plus, 
-  Stethoscope, 
-  BookOpen, 
-  GitMerge, 
-  Save,
-  Sparkles
-} from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Search, Plus, Stethoscope, Save, Eye, NotebookPen } from "lucide-react"
 
-const mockTerminologies = [
-  {
-    system: "NAMASTE",
-    code: "NAM-001",
-    display: "Vata Dosha Imbalance",
-    description: "Primary constitutional imbalance in Vata dosha affecting movement and nervous system"
-  },
-  {
-    system: "WHO-Ayurveda",
-    code: "WHO-AY-003",
-    display: "Prana Vata Disorder",
-    description: "Subdosha affecting respiratory and cardiac functions"
-  },
-  {
-    system: "ICD-11-TM2",
-    code: "TM2-001",
-    display: "Traditional Medicine Constitutional Imbalance",
-    description: "Constitutional imbalance as per traditional medicine systems"
-  },
-  {
-    system: "ICD-11-Bio",
-    code: "8E64.Z",
-    display: "Anxiety disorder, unspecified",
-    description: "Biomedical equivalent for anxiety-related symptoms"
+const dualMap = {
+  "1A00": { code: "NAM001", display: "Cholera (NAMASTE)" },
+  "1A01": { code: "NAM002", display: "Typhoid (NAMASTE)" }, 
+  "1A02": { code: "NAM003", display: "Malaria (NAMASTE)" },
+  "8E64.Z": { code: "NAM004", display: "Anxiety Disorder (NAMASTE)" },
+  "5B50": { code: "NAM005", display: "Diabetes Mellitus (NAMASTE)" },
+  "BA40": { code: "NAM006", display: "Hypertension (NAMASTE)" },
+  "CA23": { code: "NAM007", display: "Asthma (NAMASTE)" },
+  "DA11": { code: "NAM008", display: "Migraine (NAMASTE)" },
+  "EA90": { code: "NAM009", display: "Tuberculosis (NAMASTE)" },
+  "FA33": { code: "NAM010", display: "Pneumonia (NAMASTE)" },
+  "GA12": { code: "NAM011", display: "Chickenpox (NAMASTE)" },  
+  "HA45": { code: "NAM012", display: "Measles (NAMASTE)" },
+  "IA27": { code: "NAM013", display: "Hepatitis B (NAMASTE)" },
+  "JA99": { code: "NAM014", display: "COVID-19 (NAMASTE)" },
+  "KA10": { code: "NAM015", display: "Influenza (NAMASTE)" },
+  "LA77": { code: "NAM016", display: "Dengue Fever (NAMASTE)" },
+  "MA32": { code: "NAM017", display: "Leprosy (NAMASTE)" },
+  "NA55": { code: "NAM018", display: "Rabies (NAMASTE)" },
+  "OA88": { code: "NAM019", display: "Tetanus (NAMASTE)" },
+  "PA11": { code: "NAM020", display: "Scarlet Fever (NAMASTE)" },
+  "QA66": { code: "NAM021", display: "Mumps (NAMASTE)" },
+  "RA42": { code: "NAM022", display: "Whooping Cough (NAMASTE)" },
+  "SA13": { code: "NAM023", display: "Ebola Virus Disease (NAMASTE)" },
+  "TA09": { code: "NAM024", display: "Zika Virus Infection (NAMASTE)" },
+  "UA77": { code: "NAM025", display: "Polio (NAMASTE)" }, 
+}
+const fetchDualCodes = async (code) => {
+  return dualMap[code] ? [dualMap[code]] : []
+}
+
+const fetchTerminologies = async (query) => {
+  if (!query) return []
+  try {
+    const res = await fetch(`http://localhost:5000/api/icd-search?q=${encodeURIComponent(query)}`)
+    const data = await res.json()
+    return Array.isArray(data) ? data : []
+  } catch (err) {
+    console.error("Error fetching from backend:", err)
+    return []
   }
-]
+}
 
 export default function DiagnosisEntry() {
   const [searchTerm, setSearchTerm] = useState("")
-  const [selectedDiagnoses, setSelectedDiagnoses] = useState([])
+  const [results, setResults] = useState([])
+  const [selected, setSelected] = useState([])
   const [notes, setNotes] = useState("")
+  const [fhirPreview, setFhirPreview] = useState(null)
 
-  const filteredTerminologies = mockTerminologies.filter(term =>
-    term.display.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    term.code.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  useEffect(() => {
+    const handler = setTimeout(async () => {
+      if (searchTerm) {
+        const terms = await fetchTerminologies(searchTerm)
+        setResults(terms)
+      } else {
+        setResults([])
+      }
+    }, 400)
+    return () => clearTimeout(handler)
+  }, [searchTerm])
 
-  const addDiagnosis = (terminology) => {
-    if (!selectedDiagnoses.find(d => d.code === terminology.code)) {
-      setSelectedDiagnoses([...selectedDiagnoses, terminology])
+  const addDiagn = async (term) => {
+    if (!selected.find(d => d.code === term.code)) {
+      const dual = await fetchDualCodes(term.code)
+      setSelected([...selected, { ...term, dual }])
     }
   }
 
-  const removeDiagnosis = (code) => {
-    setSelectedDiagnoses(selectedDiagnoses.filter(d => d.code !== code))
+  const removeDiagn = (code) => {
+    setSelected(selected.filter(d => d.code !== code))
   }
 
-  const getSystemColor = (system) => {
-    const colors = {
-      "NAMASTE": "bg-accent",
-      "WHO-Ayurveda": "bg-primary",
-      "ICD-11-TM2": "bg-warning",
-      "ICD-11-Bio": "bg-success"
+  const buildFHIR = () => ({
+    resourceType: "Bundle",
+    type: "collection",
+    entry: selected.map(d => ({
+      resource: {
+        resourceType: "Condition",
+        code: {
+          coding: [
+            { system: d.system, code: d.code, display: d.display },
+            ...(d.dual?.map((m) => ({
+              system: "NAMASTE",
+              code: m.code,
+              display: m.display
+            })) || [])
+          ],
+          text: d.display
+        },
+        note: notes ? [{ text: notes }] : []
+      }
+    }))
+  })
+
+  const handlePreview = () => setFhirPreview(buildFHIR())
+
+  const handleSave = async () => {
+    const bundle = buildFHIR();
+    try {
+     const res = await fetch("http://localhost:5000/api/save-diagnosis", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(bundle),
+});
+
+      if (res.ok) alert("✅ Synced successfully with EMR");
+      else alert("❌ Failed to sync");
+    } catch (err) {
+      console.error(err);
+      alert("Error syncing with EMR");
     }
-    return colors[system] || "bg-secondary"
-  }
+  };
 
   return (
-    <div className="space-y-6 animate-fade-in">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Diagnosis Entry</h1>
-          <p className="text-muted-foreground">
-            Search and select diagnoses from NAMASTE, WHO Ayurveda, and ICD-11 terminologies
-          </p>
-        </div>
-        <Button variant="hero" size="lg">
-          <Sparkles className="mr-2 h-4 w-4" />
-          AI Suggestions
-        </Button>
-      </div>
+    <div className="space-y-6 px-4 md:px-8 font-sans">
+      <h1 className="text-4xl mt-6 font-extrabold text-green-700 flex items-center gap-2">
+        <Stethoscope className="w-8 h-8 text-green-700" />
+        Diagnosis Entry (SIH-26)
+      </h1>
+      <p className="text-gray-600 ml-10 text-lg">Dual coding NAMASTE ↔ ICD-11 with FHIR export</p>
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        {/* Search Panel */}
-        <div className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Search className="mr-2 h-5 w-5" />
-                Terminology Search
-              </CardTitle>
-              <CardDescription>
-                Search across all integrated terminology systems
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="search">Search Terms</Label>
-                <Input
-                  id="search"
-                  placeholder="Search diagnoses, symptoms, or codes..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="h-12"
-                />
-              </div>
+      <div className="grid gap-6 mt-16 lg:grid-cols-2">
+        {/* Search Section */}
+        <Card className="shadow-lg border border-gray-200 hover:shadow-xl transition">
+          <CardHeader>
+            <CardTitle className="text-xl text-green-700 flex items-center gap-2">
+              <Search className="inline w-6 h-6" /> Disease Search
+            </CardTitle>
+            <CardDescription className="text-gray-500">
+              Searching From stored dataset
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Label htmlFor="search" className="font-semibold">Search</Label>
+            <Input
+              id="search"
+              placeholder="e.g. cholera"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="mt-1 border-gray-300 focus:border-gray-50  "
+            />
 
-              {/* System Filters */}
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="outline" className="cursor-pointer">All Systems</Badge>
-                <Badge variant="outline" className="cursor-pointer">NAMASTE</Badge>
-                <Badge variant="outline" className="cursor-pointer">WHO Ayurveda</Badge>
-                <Badge variant="outline" className="cursor-pointer">ICD-11 TM2</Badge>
-                <Badge variant="outline" className="cursor-pointer">ICD-11 Bio</Badge>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Search Results */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Search Results ({filteredTerminologies.length})</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3 max-h-96 overflow-y-auto">
-                {filteredTerminologies.map((term) => (
-                  <Card key={term.code} className="hover:shadow-md transition-shadow">
-                    <CardContent className="p-4">
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <Badge className={getSystemColor(term.system)}>
-                              {term.system}
-                            </Badge>
-                            <code className="text-xs bg-muted px-2 py-1 rounded">
-                              {term.code}
-                            </code>
-                          </div>
-                          <h4 className="font-medium text-sm mb-1">{term.display}</h4>
-                          <p className="text-xs text-muted-foreground">{term.description}</p>
-                        </div>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => addDiagnosis(term)}
-                        >
-                          <Plus className="h-3 w-3" />
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Selected Diagnoses */}
-        <div className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Stethoscope className="mr-2 h-5 w-5" />
-                Selected Diagnoses
-              </CardTitle>
-              <CardDescription>
-                Diagnoses to be added to patient record
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {selectedDiagnoses.length > 0 ? (
-                <div className="space-y-3">
-                  {selectedDiagnoses.map((diagnosis) => (
-                    <Card key={diagnosis.code} className="border-l-4 border-l-primary">
-                      <CardContent className="p-4">
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-2">
-                              <Badge className={getSystemColor(diagnosis.system)}>
-                                {diagnosis.system}
-                              </Badge>
-                              <code className="text-xs bg-muted px-2 py-1 rounded">
-                                {diagnosis.code}
-                              </code>
-                            </div>
-                            <h4 className="font-medium text-sm">{diagnosis.display}</h4>
-                          </div>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => removeDiagnosis(diagnosis.code)}
-                          >
-                            Remove
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-8 text-muted-foreground">
-                  <BookOpen className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p>No diagnoses selected</p>
-                  <p className="text-sm">Search and add diagnoses from the left panel</p>
-                </div>
+            <div className="space-y-2 mt-4 max-h-64 overflow-y-auto bg-gray-50 rounded-lg p-2">
+              {results.length === 0 && searchTerm && (
+                <p className="text-gray-500 text-sm italic">No matches found</p>
               )}
+
+              {results.map((term) => (
+                <div
+                  key={term.code}
+                  className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm hover:bg-green-50 transition"
+                >
+                  <div className="space-y-1">
+                    <p className="text-gray-800 font-bold uppercase tracking-wide">{term.display}</p>
+                    <div className="flex gap-2">
+                      <Badge className="bg-blue-100 text-blue-700">ICD: {term.code}</Badge>
+                      <Badge className="bg-green-100 text-green-700">NAMASTE: {term.namaste}</Badge>
+                    </div>
+                    {term.description && (
+                      <p className="text-xs">{term.description}</p>
+                    )}
+                  </div>
+
+                  <Button
+                    size="sm"
+                    className="bg-green-700 hover:bg-green-400 text-white"
+                    onClick={() => addDiagn(term)}
+                  >
+                    <Plus className="h-4 w-4" />
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Selected Diagnoses & Notes */}
+        <div className="space-y-4">
+          <Card className="shadow-lg border border-gray-200 hover:shadow-xl transition">
+            <CardHeader>
+              <CardTitle className="text-2xl text-green-700 flex items-center gap-2">
+                <NotebookPen className="w-6 h-6" /> Selected Diagnoses
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {selected.length > 0 ? selected.map(d => (
+                <Card key={d.code} className="mb-2 border hover:shadow-md transition">
+                  <CardContent className="flex justify-between items-center">
+                    <div>
+                      <p className="font-semibold text-lg text-gray-800">{d.display}</p>
+                      <p className="text-sm text-gray-600">{d.code}</p>
+                      {d.dual?.length > 0 && (
+                        <p className="text-sm text-green-600">
+                          Dual-coded: {d.dual[0].display} ({d.dual[0].code})
+                        </p>
+                      )}
+                    </div>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="text-green-600 border-green-400 hover:bg-green-50"
+                      onClick={() => removeDiagn(d.code)}
+                    >
+                      Remove
+                    </Button>
+                  </CardContent>
+                </Card>
+              )) : <p className="text-gray-500 italic">No diagnoses selected</p>}
             </CardContent>
           </Card>
 
-          {/* Dual Coding Suggestions */}
-          {selectedDiagnoses.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <GitMerge className="mr-2 h-5 w-5" />
-                  Dual Coding Suggestions
-                </CardTitle>
-                <CardDescription>
-                  Recommended equivalent codes across systems
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="p-3 border rounded-lg bg-accent/10">
-                    <p className="text-sm font-medium mb-2">Suggested Mapping:</p>
-                    <div className="text-xs space-y-1">
-                      <p>NAMASTE: Vata Dosha Imbalance → ICD-11: Anxiety disorder</p>
-                      <p>Confidence: 85%</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* Clinical Notes */}
-          <Card>
+          <Card className="shadow-lg border border-gray-200 hover:shadow-xl transition">
             <CardHeader>
-              <CardTitle>Clinical Notes</CardTitle>
+              <CardTitle className="text-2xl font-bold text-green-700 flex items-center gap-2">
+                <Save className="w-6 h-6" /> Clinical Notes
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <Textarea
-                placeholder="Add clinical notes, observations, or additional context..."
+                placeholder="Add notes..."
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                rows={4}
+                className="border-gray-300 focus:border-green-400 focus:ring-green-400"
               />
+              <div className="flex gap-3 mt-4">
+                <Button
+                  onClick={handleSave}
+                  className="bg-green-400 hover:bg-green-500 text-white"
+                >
+                  <Save className="mr-2" /> Save & Sync
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={handlePreview}
+                  className="border-green-400 text-green-600 hover:bg-green-50"
+                >
+                  <Eye className="mr-2" /> Preview FHIR
+                </Button>
+              </div>
             </CardContent>
           </Card>
-
-          {/* Actions */}
-          <div className="flex gap-3">
-            <Button variant="medical" className="flex-1">
-              <Save className="mr-2 h-4 w-4" />
-              Save to FHIR ProblemList
-            </Button>
-            <Button variant="outline">
-              Preview FHIR Bundle
-            </Button>
-          </div>
         </div>
       </div>
+
+      <Dialog open={!!fhirPreview} onOpenChange={() => setFhirPreview(null)}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-green-700">
+              FHIR Bundle Preview
+            </DialogTitle>
+          </DialogHeader>
+          <pre className="bg-gray-100 p-4 rounded text-xs overflow-x-auto max-h-96">
+            {JSON.stringify(fhirPreview, null, 2)}
+          </pre>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

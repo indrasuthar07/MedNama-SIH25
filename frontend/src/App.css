@@ -1,12 +1,6 @@
 
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Healthcare EMR Design System */
 
 @layer base {
@@ -50,9 +44,7 @@
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Inputs */
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 217 91% 59%;
+    
 
     /* Healthcare Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 59%), hsl(217 91% 49%));
@@ -104,26 +96,10 @@
     --popover: 215 28% 20%;
     --popover-foreground: 0 0% 98%;
 
-    --success: 142 71% 55%;
-    --success-foreground: 215 28% 17%;
-    --warning: 38 92% 60%;
-    --warning-foreground: 215 28% 17%;
-    --destructive: 0 84% 70%;
-    --destructive-foreground: 215 28% 17%;
-
-    --border: 215 28% 27%;
-    --input: 215 28% 27%;
-    --ring: 217 91% 69%;
+   
 
     /* Dark Sidebar */
-    --sidebar-background: 215 28% 15%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 217 91% 69%;
-    --sidebar-primary-foreground: 215 28% 15%;
-    --sidebar-accent: 215 28% 25%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 215 28% 22%;
-    --sidebar-ring: 217 91% 69%;
+ 
   }
 }
 
