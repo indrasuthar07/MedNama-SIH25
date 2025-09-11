@@ -36,7 +36,7 @@ const mockPatients = [
     name: "Ekansh Gupta",
     abhaId: "12-0926-7890-1234",
     age: 45,
-    gender: "Female",
+    gender: "Male",
     location: "Barieli, Uttar Pradesh",
     phone: "+91 98XXX XXX10",
     email: "ekansh@email.com",
@@ -55,21 +55,21 @@ const mockPatients = [
     phone: "+91 87654 32109",
     email: "nivedita@email.com",
     lastVisit: "2024-01-20",
-    conditions: ["Migraine", "PCOS"],
+    conditions: ["Migraine", "COVID-19"],
     status: "Active",
     encounters: []
   },
   {
     id: "4",
     name: "Kartik Gupta",
-    abhaId: "12-3276-7890-5679", // typo fixed here (was bhaId)
+    abhaId: "12-3276-7890-5679", 
     age: 29,
     gender: "Male",
     location: "Bariely, Uttar Pradesh",
     phone: "+91 87654 XXXX9",
     email: "kartik@email.com",
     lastVisit: "2024-01-20",
-    conditions: ["Migraine", "PCOS"],
+    conditions: ["Malaria", "cholera"],
     status: "Active",
     encounters: []
   },
@@ -83,7 +83,7 @@ const mockPatients = [
     phone: "+91 8XXXX 32109",
     email: "vinyak@email.com",
     lastVisit: "2024-01-20",
-    conditions: ["Malaria", "Migraine", "PCOS"],
+    conditions: ["Malaria", "Migraine"],
     status: "Active",
     encounters: []
   },
