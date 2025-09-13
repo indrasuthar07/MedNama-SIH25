@@ -37,7 +37,15 @@ const dualMap = {
   "RA42": { code: "NAM022", display: "Whooping Cough (NAMASTE)" },
   "SA13": { code: "NAM023", display: "Ebola Virus Disease (NAMASTE)" },
   "TA09": { code: "NAM024", display: "Zika Virus Infection (NAMASTE)" },
-  "UA77": { code: "NAM025", display: "Polio (NAMASTE)" }, 
+  "UA34": { code: "NAM025", display: "Chikungunya (NAMASTE)" },
+  "VA21": { code: "NAM026", display: "Yellow Fever (NAMASTE)" },
+  "WA78": { code: "NAM027", display: "Lassa Fever (NAMASTE)" },
+  "XA56": { code: "NAM028", display: "Marburg Virus Disease (NAMASTE)" },
+  "YA89": { code: "NAM029", display: "Nipah Virus Infection (NAMASTE)" },
+  "ZA90": { code: "NAM030", display: "Hantavirus Pulmonary Syndrome (NAMASTE)" },
+  "SR12": { code: "AAA-2", display: "vatavriddh (NAMASTE)"},
+  "SQ00": { code: "AAB-1", display: "atipralapa (NAMASTE)"},
+
 }
 const fetchDualCodes = async (code) => {
   return dualMap[code] ? [dualMap[code]] : []

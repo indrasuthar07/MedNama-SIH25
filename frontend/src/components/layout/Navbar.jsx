@@ -52,9 +52,14 @@ export function Navbar() {
             <Activity className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-lg font-bold tracking-tight text-green-700">
-              Namaste &lt;-&gt;ICD-11
-            </h1>
+    <h1 
+  className="text-2xl font-black tracking-widest text-green-700"
+  style={{ fontFamily: "'Montserrat', sans-serif" }}
+>
+  MEDNAMA
+</h1>
+
+
             <p className="text-xs text-[#6B7280] hidden sm:block">
               Ministry of Health & Family Welfare
             </p>

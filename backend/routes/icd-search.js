@@ -4,7 +4,8 @@ const router = express.Router();
 
 // Dummy dataset of ICD-11 and NAMASTE codes
 const diseases = [
-  { code: "1A00", display: "Cholera", system: "ICD-11", namaste: "NMT001" },
+  { code: "SM3B", display: "AgniMandya", system: "ICD-11", namaste: "AYU123" },
+
   { code: "1A01", display: "Typhoid Fever", system: "ICD-11", namaste: "NMT002" },
   { code: "1A02", display: "Malaria", system: "ICD-11", namaste: "NMT003" },
   { code: "8E64.Z", display: "Anxiety Disorder", system: "ICD-11", namaste: "NMT004" },
@@ -29,6 +30,15 @@ const diseases = [
   { code: "SA13", display: "Ebola Virus Disease", system: "ICD-11", namaste: "NMT023" },
   { code: "TA09", display: "Zika Virus Infection", system: "ICD-11", namaste: "NMT024" },
   { code: "UA77", display: "Polio", system: "ICD-11", namaste: "NMT025" },
+  { code: "UA34", display: "Chikungunya", system: "ICD-11", namaste: "NMT026" },
+  { code: "VA21", display: "Yellow Fever", system: "ICD-11", namaste: "NMT027" },
+  { code: "WA78", display: "Lassa Fever", system: "ICD-11", namaste: "NMT028" },
+  { code: "XA56", display: "Marburg Virus Disease", system: "ICD-11", namaste: "NMT029" },
+  { code: "YA89", display: "Nipah Virus Infection", system: "ICD-11", namaste: "NMT030" },
+  { code: "ZA90", display: "Hantavirus Pulmonary Syndrome", system: "ICD-11", namaste: "NMT031" },
+  { code: "SR12", display: "vatavriddh", system:"ICD-11", namaste: "AAA-2"},
+  { code: "SQ00", display: "atipralapa", system:"ICD-11", namaste: "AAB-1"}
+  
 ];
 
 // GET /api/icd-search?q=<query>

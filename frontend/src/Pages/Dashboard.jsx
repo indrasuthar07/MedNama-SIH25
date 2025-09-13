@@ -132,7 +132,7 @@ export default function Dashboard() {
     <div className="flex flex-col items-center md:items-center">
       <h4 className="text-gray-800 font-semibold text-lg mb-3">Quick Links</h4>
       <ul className="text-gray-500 text-sm space-y-2">
-        <li><a href="/dashboard" className="hover:text-green-700 transition-colors"> Home</a></li>
+        <li><a href="/" className="hover:text-green-700 transition-colors"> Home</a></li>
         <li><a href="/patients" className="hover:text-green-700 transition-colors"> Patient Search</a></li>
         <li><a href="/analytics" className="hover:text-green-700 transition-colors"> Analytics</a></li>
         <li><a href="/support" className="hover:text-green-700 transition-colors">Support</a></li>
