@@ -27,7 +27,6 @@ const diseaseSchema = new mongoose.Schema({
 });
 const Disease = mongoose.model("diseases", diseaseSchema);
 
-// Mount ICD search route
 app.use("/api/icd-search", icdRoute);
 
 // Save FHIR diagnosis bundle
