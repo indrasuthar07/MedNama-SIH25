@@ -43,6 +43,7 @@ import Dashboard from "./Pages/Dashboard";
 import Login from "./Pages/Login";
 import PatientSearch from "./Pages/PatientSearch";
 import DiagnosisEntry from "./Pages/DiagnosisEntry";
+import Analytics from "./Pages/Analytics";
 
 
 const queryClient = new QueryClient();
@@ -59,6 +60,7 @@ const App = () => (
           <Route index element={<Dashboard />} />
           <Route path="patients" element={<PatientSearch />} />
           <Route path="diagnosis" element={<DiagnosisEntry />} />
+          <Route path="analytics" element={<Analytics />} />
         </Route>
 
         {/* Catch-all for 404 */}
