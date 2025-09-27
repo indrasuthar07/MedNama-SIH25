@@ -44,7 +44,7 @@ import Login from "./Pages/Login";
 import PatientSearch from "./Pages/PatientSearch";
 import DiagnosisEntry from "./Pages/DiagnosisEntry";
 import Analytics from "./Pages/Analytics";
-
+import ApiDocs from "./Pages/Api-docs";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +58,7 @@ const App = () => (
         {/* Protected layout with nested routes */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Dashboard />} />
+          <Route path="api" element={<ApiDocs />} />
           <Route path="patients" element={<PatientSearch />} />
           <Route path="diagnosis" element={<DiagnosisEntry />} />
           <Route path="analytics" element={<Analytics />} />

@@ -138,7 +138,7 @@ export default function DiagnosisEntry() {
     <div className="space-y-6 px-4 md:px-8 font-sans">
       <h1 className="text-4xl mt-6 font-extrabold text-green-700 flex items-center gap-2">
         <Stethoscope className="w-8 h-8 text-green-700" />
-        Diagnosis Entry (SIH-26)
+        Diagnosis Search
       </h1>
       <p className="text-gray-600 ml-10 text-lg">Dual coding NAMASTE ↔ ICD-11 with FHIR export</p>
 

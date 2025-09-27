@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   LogOut,
   UserCircle,
+  Code,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -19,8 +20,10 @@ import { cn } from "@/lib/utils"
 const navigationItems = [
   { title: "Home", url: "/", icon: LayoutDashboard },
   { title: "Patient Search", url: "/patients", icon: Users },
-  { title: "Diagnosis Entry", url: "/diagnosis", icon: Stethoscope },
+  { title: "Diagnosis Search", url: "/diagnosis", icon: Stethoscope },
+   { title: "API Docs", url: "/api", icon: Code },
   { title: "Analytics", url: "/analytics", icon: BarChart3 },
+ 
 ]
 
 export function Navbar() {
