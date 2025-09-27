@@ -135,148 +135,178 @@ export default function DiagnosisEntry() {
   };
 
   return (
-    <div className="space-y-6 px-4 md:px-8 font-sans">
-      <h1 className="text-4xl mt-6 font-extrabold text-green-700 flex items-center gap-2">
-        <Stethoscope className="w-8 h-8 text-green-700" />
-        Diagnosis Search
-      </h1>
-      <p className="text-gray-600 ml-10 text-lg">Dual coding NAMASTE ↔ ICD-11 with FHIR export</p>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50 px-6 md:px-10 py-10 font-sans">
+  {/* Title Section */}
+  <div className="text-center mb-10">
+    <h1 className="text-4xl font-extrabold text-green-700 flex justify-center items-center gap-3">
+      <Stethoscope className="w-9 h-9 text-green-600" />
+      Diagnosis Search Portal
+    </h1>
+    <p className="text-gray-600 text-lg mt-2">
+      Dual Coding — NAMASTE ↔ ICD-11 | FHIR Ready
+    </p>
+  </div>
 
-      <div className="grid gap-6 mt-16 lg:grid-cols-2">
-        {/* Search Section */}
-        <Card className="shadow-lg border border-gray-200 hover:shadow-xl transition">
-          <CardHeader>
-            <CardTitle className="text-xl text-green-700 flex items-center gap-2">
-              <Search className="inline w-6 h-6" /> Disease Search
-            </CardTitle>
-            <CardDescription className="text-gray-500">
-              Searching From stored dataset
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Label htmlFor="search" className="font-semibold">Search</Label>
-            <Input
-              id="search"
-              placeholder="e.g. cholera"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="mt-1 border-gray-300 focus:border-gray-50  "
-            />
+  {/* Main Grid Layout */}
+  <div className="grid lg:grid-cols-2 gap-10">
+    {/* Left: Search Section */}
+    <Card className="border-none bg-white shadow-md rounded-2xl">
+      <CardHeader className="border-b pb-3">
+        <CardTitle className="text-2xl font-bold text-green-700 flex items-center gap-2">
+          <Search className="w-6 h-6" /> Disease Search
+        </CardTitle>
+        <CardDescription className="text-gray-500">
+          Explore diseases from dataset
+        </CardDescription>
+      </CardHeader>
 
-            <div className="space-y-2 mt-4 max-h-64 overflow-y-auto bg-gray-50 rounded-lg p-2">
-              {results.length === 0 && searchTerm && (
-                <p className="text-gray-500 text-sm italic">No matches found</p>
-              )}
+      <CardContent className="pt-4">
+        <Label htmlFor="search" className="font-semibold text-gray-700">
+          Search Disease
+        </Label>
+        <Input
+          id="search"
+          placeholder="Type disease name..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="mt-2 border-gray-300 focus:border-green-500 focus:ring-green-400 rounded-lg"
+        />
 
-              {results.map((term) => (
-                <div
-                  key={term.code}
-                  className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm hover:bg-green-50 transition"
-                >
-                  <div className="space-y-1">
-                    <p className="text-gray-800 font-bold uppercase tracking-wide">{term.display}</p>
-                    <div className="flex gap-2">
-                      <Badge className="bg-blue-100 text-blue-700">ICD: {term.code}</Badge>
-                      <Badge className="bg-green-100 text-green-700">NAMASTE: {term.namaste}</Badge>
-                    </div>
-                    {term.description && (
-                      <p className="text-xs">{term.description}</p>
-                    )}
-                  </div>
+        {/* Results List */}
+        <div className="mt-5 max-h-72 overflow-y-auto bg-gray-50 rounded-xl p-3 space-y-2">
+          {results.length === 0 && searchTerm && (
+            <p className="text-gray-500 text-sm italic text-center py-4">
+              No matches found
+            </p>
+          )}
 
-                  <Button
-                    size="sm"
-                    className="bg-green-700 hover:bg-green-400 text-white"
-                    onClick={() => addDiagn(term)}
-                  >
-                    <Plus className="h-4 w-4" />
-                  </Button>
+          {results.map((term) => (
+            <div
+              key={term.code}
+              className="flex justify-between items-center bg-white rounded-xl border border-gray-100 p-3"
+            >
+              <div>
+                <p className="text-gray-800 font-semibold text-sm">
+                  {term.display}
+                </p>
+                <div className="flex gap-2 mt-1 text-xs">
+                  <Badge className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">
+                    ICD: {term.code}
+                  </Badge>
+                  <Badge className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
+                    NAMASTE: {term.namaste}
+                  </Badge>
                 </div>
-              ))}
+              </div>
+
+              <Button
+                size="sm"
+                className="bg-green-600 text-white rounded-md"
+                onClick={() => addDiagn(term)}
+              >
+                <Plus className="h-4 w-4" />
+              </Button>
             </div>
-          </CardContent>
-        </Card>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
 
-        {/* Selected Diagnoses & Notes */}
-        <div className="space-y-4">
-          <Card className="shadow-lg border border-gray-200 hover:shadow-xl transition">
-            <CardHeader>
-              <CardTitle className="text-2xl text-green-700 flex items-center gap-2">
-                <NotebookPen className="w-6 h-6" /> Selected Diagnoses
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              {selected.length > 0 ? selected.map(d => (
-                <Card key={d.code} className="mb-2 border hover:shadow-md transition">
-                  <CardContent className="flex justify-between items-center">
-                    <div>
-                      <p className="font-semibold text-lg text-gray-800">{d.display}</p>
-                      <p className="text-sm text-gray-600">{d.code}</p>
-                      {d.dual?.length > 0 && (
-                        <p className="text-sm text-green-600">
-                          Dual-coded: {d.dual[0].display} ({d.dual[0].code})
-                        </p>
-                      )}
-                    </div>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="text-green-600 border-green-400 hover:bg-green-50"
-                      onClick={() => removeDiagn(d.code)}
-                    >
-                      Remove
-                    </Button>
-                  </CardContent>
-                </Card>
-              )) : <p className="text-gray-500 italic">No diagnoses selected</p>}
-            </CardContent>
-          </Card>
+    {/* Right: Selected + Notes */}
+    <div className="space-y-8">
+      {/* Selected Diagnoses */}
+      <Card className="border-none bg-white shadow-md rounded-2xl">
+        <CardHeader className="border-b pb-3">
+          <CardTitle className="text-2xl font-bold text-green-700 flex items-center gap-2">
+            <NotebookPen className="w-6 h-6" /> Selected Diagnoses
+          </CardTitle>
+        </CardHeader>
 
-          <Card className="shadow-lg border border-gray-200 hover:shadow-xl transition">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold text-green-700 flex items-center gap-2">
-                <Save className="w-6 h-6" /> Clinical Notes
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Textarea
-                placeholder="Add notes..."
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-                className="border-gray-300 focus:border-green-400 focus:ring-green-400"
-              />
-              <div className="flex gap-3 mt-4">
+        <CardContent>
+          {selected.length > 0 ? (
+            selected.map((d) => (
+              <div
+                key={d.code}
+                className="border border-gray-100 bg-gray-50 rounded-lg p-3 mb-2 flex justify-between items-center"
+              >
+                <div>
+                  <p className="font-semibold text-gray-800 text-sm">
+                    {d.display}
+                  </p>
+                  <p className="text-xs text-gray-500">ICD: {d.code}</p>
+                  {d.dual?.length > 0 && (
+                    <p className="text-xs text-green-600 mt-1">
+                      Dual-coded: {d.dual[0].display} ({d.dual[0].code})
+                    </p>
+                  )}
+                </div>
+
                 <Button
-                  onClick={handleSave}
-                  className="bg-green-400 hover:bg-green-500 text-white"
-                >
-                  <Save className="mr-2" /> Save & Sync
-                </Button>
-                <Button
+                  size="sm"
                   variant="outline"
-                  onClick={handlePreview}
-                  className="border-green-400 text-green-600 hover:bg-green-50"
+                  className="text-green-700 border-green-400"
+                  onClick={() => removeDiagn(d.code)}
                 >
-                  <Eye className="mr-2" /> Preview FHIR
+                  Remove
                 </Button>
               </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+            ))
+          ) : (
+            <p className="text-gray-500 italic text-center py-6">
+              No diagnoses selected
+            </p>
+          )}
+        </CardContent>
+      </Card>
 
-      <Dialog open={!!fhirPreview} onOpenChange={() => setFhirPreview(null)}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-green-700">
-              FHIR Bundle Preview
-            </DialogTitle>
-          </DialogHeader>
-          <pre className="bg-gray-100 p-4 rounded text-xs overflow-x-auto max-h-96">
-            {JSON.stringify(fhirPreview, null, 2)}
-          </pre>
-        </DialogContent>
-      </Dialog>
+      {/* Clinical Notes */}
+      <Card className="border-none bg-white shadow-md rounded-2xl">
+        <CardHeader className="border-b pb-3">
+          <CardTitle className="text-2xl font-bold text-green-700 flex items-center gap-2">
+            <Save className="w-6 h-6" /> Clinical Notes
+          </CardTitle>
+        </CardHeader>
+
+        <CardContent>
+          <Textarea
+            placeholder="Write clinical notes here..."
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+            className="border-gray-300 focus:border-green-500 focus:ring-green-400 rounded-lg"
+          />
+
+          <div className="flex gap-3 mt-4">
+            <Button onClick={handleSave} className="bg-green-600 text-white">
+              <Save className="mr-2" /> Save & Sync
+            </Button>
+            <Button
+              variant="outline"
+              onClick={handlePreview}
+              className="border-green-400 text-green-700"
+            >
+              <Eye className="mr-2" /> Preview FHIR
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
+  </div>
+
+  {/* FHIR Preview Dialog */}
+  <Dialog open={!!fhirPreview} onOpenChange={() => setFhirPreview(null)}>
+    <DialogContent className="max-w-2xl bg-white rounded-2xl">
+      <DialogHeader>
+        <DialogTitle className="text-2xl font-bold text-green-700">
+          FHIR Bundle Preview
+        </DialogTitle>
+      </DialogHeader>
+      <pre className="bg-gray-100 p-4 rounded-lg text-xs overflow-x-auto max-h-96">
+        {JSON.stringify(fhirPreview, null, 2)}
+      </pre>
+    </DialogContent>
+  </Dialog>
+</div>
+
+
   )
 }
