@@ -1,56 +1,42 @@
-// backend/routes/icd-search.js
 import express from "express";
+import fs from "fs";
+import path from "path";
+
 const router = express.Router();
 
-// Dummy dataset of ICD-11 and NAMASTE codes
-const diseases = [
-  { code: "SM3B", display: "AgniMandya", system: "ICD-11", namaste: "AYU123" },
-
-  { code: "1A01", display: "Typhoid Fever", system: "ICD-11", namaste: "NMT002" },
-  { code: "1A02", display: "Malaria", system: "ICD-11", namaste: "NMT003" },
-  { code: "8E64.Z", display: "Anxiety Disorder", system: "ICD-11", namaste: "NMT004" },
-  { code: "5B50", display: "Diabetes Mellitus", system: "ICD-11", namaste: "NMT005" },
-  { code: "BA40", display: "Hypertension", system: "ICD-11", namaste: "NMT006" },
-  { code: "CA23", display: "Asthma", system: "ICD-11", namaste: "NMT007" },
-  { code: "DA11", display: "Migraine", system: "ICD-11", namaste: "NMT008" },
-  { code: "EA90", display: "Tuberculosis", system: "ICD-11", namaste: "NMT009" },
-  { code: "FA33", display: "Pneumonia", system: "ICD-11", namaste: "NMT010" },
-  { code: "GA12", display: "Chickenpox", system: "ICD-11", namaste: "NMT011" },
-  { code: "HA45", display: "Measles", system: "ICD-11", namaste: "NMT012" },
-  { code: "IA27", display: "Hepatitis B", system: "ICD-11", namaste: "NMT013" },
-  { code: "JA99", display: "COVID-19", system: "ICD-11", namaste: "NMT014" },
-  { code: "KA10", display: "Influenza", system: "ICD-11", namaste: "NMT015" },
-  { code: "LA77", display: "Dengue Fever", system: "ICD-11", namaste: "NMT016" },
-  { code: "MA32", display: "Leprosy", system: "ICD-11", namaste: "NMT017" },
-  { code: "NA55", display: "Rabies", system: "ICD-11", namaste: "NMT018" },
-  { code: "OA88", display: "Tetanus", system: "ICD-11", namaste: "NMT019" },
-  { code: "PA11", display: "Scarlet Fever", system: "ICD-11", namaste: "NMT020" },
-  { code: "QA66", display: "Mumps", system: "ICD-11", namaste: "NMT021" },
-  { code: "RA42", display: "Whooping Cough", system: "ICD-11", namaste: "NMT022" },
-  { code: "SA13", display: "Ebola Virus Disease", system: "ICD-11", namaste: "NMT023" },
-  { code: "TA09", display: "Zika Virus Infection", system: "ICD-11", namaste: "NMT024" },
-  { code: "UA77", display: "Polio", system: "ICD-11", namaste: "NMT025" },
-  { code: "UA34", display: "Chikungunya", system: "ICD-11", namaste: "NMT026" },
-  { code: "VA21", display: "Yellow Fever", system: "ICD-11", namaste: "NMT027" },
-  { code: "WA78", display: "Lassa Fever", system: "ICD-11", namaste: "NMT028" },
-  { code: "XA56", display: "Marburg Virus Disease", system: "ICD-11", namaste: "NMT029" },
-  { code: "YA89", display: "Nipah Virus Infection", system: "ICD-11", namaste: "NMT030" },
-  { code: "ZA90", display: "Hantavirus Pulmonary Syndrome", system: "ICD-11", namaste: "NMT031" },
-  { code: "SR12", display: "vatavriddh", system:"ICD-11", namaste: "AAA-2"},
-  { code: "SQ00", display: "atipralapa", system:"ICD-11", namaste: "AAB-1"}
-  
-];
-
-// GET /api/icd-search?q=<query>
 router.get("/", (req, res) => {
   const q = req.query.q?.toLowerCase() || "";
   if (!q) return res.json([]);
-  const matches = diseases.filter(
+
+  let dualMap = [];
+  try {
+    // Make sure this path matches your backend folder structure
+    const dataPath = path.join(process.cwd(), "Data", "data.json");
+    dualMap = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+  } catch (err) {
+    console.error("Error reading data.json:", err);
+    return res.status(500).json({ error: "Failed to read data.json" });
+  }
+
+const matches = dualMap
+  .filter(
     (d) =>
-      d.display.toLowerCase().includes(q) ||
-      d.code.toLowerCase().includes(q) ||
-      d.namaste.toLowerCase().includes(q)
-  );
+      (d.icd?.toLowerCase() || "").includes(q) ||
+      (d.biomedical?.toLowerCase() || "").includes(q) ||
+      (d.namaste?.toLowerCase() || "").includes(q) ||
+      (d.biomedical_name?.toLowerCase() || "").includes(q) ||
+      (d.display?.toLowerCase() || "").includes(q) ||
+      (d.description?.toLowerCase() || "").includes(q)
+  )
+  .sort((a, b) => {
+    const aDisplay = (a.display || "").toLowerCase();
+    const bDisplay = (b.display || "").toLowerCase();
+    if (aDisplay.startsWith(q) && !bDisplay.startsWith(q)) return -1;
+    if (!aDisplay.startsWith(q) && bDisplay.startsWith(q)) return 1;
+    return 0; // keep original relative order otherwise
+  });
+
+
   res.json(matches);
 });
 

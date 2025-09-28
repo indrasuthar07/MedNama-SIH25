@@ -1,23 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
-  CardHeader,
-  CardTitle,
   CardContent,
   CardDescription,
+  CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
 import {
-  Search,
   Code,
-  Plus,
   Code2Icon,
+  Search
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 // ✅ API Documentation Data
 const apiData = [
@@ -232,7 +230,7 @@ export default function ApiDocs() {
 
       {results.map((term) => (
         <div
-          key={term.code}
+          key={term.icd}
           className="group flex justify-between items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition cursor-pointer"
         >
           {/* Disease info */}
@@ -243,12 +241,15 @@ export default function ApiDocs() {
   </p>
 
   {/* Right side: ICD + NAMASTE */}
-  <div className="flex items-center gap-2 text-xs">
+  <div className="flex items-center gap-2  ml-3 text-xs">
     <Badge className="bg-blue-100 text-blue-700 font-medium px-2 py-0.5 rounded-full">
-      ICD: {term.code}
+      ICD: {term.icd}
     </Badge>
     <Badge className="bg-green-100 text-green-700 font-medium px-2 py-0.5 rounded-full">
       NAMASTE: {term.namaste}
+    </Badge>
+    <Badge className="bg-red-100 text-red-700 font-medium px-2 py-0.5 rounded-full">
+      BIOMEDICAL: {term.biomedical}
     </Badge>
   </div>
 </div>

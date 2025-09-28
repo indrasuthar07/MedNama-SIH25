@@ -1,5 +1,5 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
 import mongoose from "mongoose";
 import icdRoute from "./routes/icd-search.js";
 
@@ -65,4 +65,6 @@ app.get("/api/saved-bundles", async (req, res) => {
 // Simple test route
 app.get("/", (req, res) => res.send("Backend running ✅"));
 
-app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));;
+
+
