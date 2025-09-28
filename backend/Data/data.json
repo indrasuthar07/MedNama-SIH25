@@ -1,0 +1,1986 @@
+[
+  {
+    "icd": "SR11",
+    "namaste": "AAA-1",
+    "display": "vAtasa~jcayaH",
+    "biomedical": "R65.10",
+    "biomedical_name": "SIRS of non-infectious origin",
+    "description": "Systemic inflammatory response in the body caused by non-infectious conditions like trauma or pancreatitis."
+  },
+  {
+    "icd": "SR12",
+    "namaste": "AAA-2",
+    "display": "vAtavRuddhiH",
+    "biomedical": "R12",
+    "biomedical_name": "Heartburn",
+    "description": "A burning sensation in the chest or throat, typically caused by stomach acid regurgitation."
+  },
+  {
+    "icd": "SR10",
+    "namaste": "AAA-2.1",
+    "display": "vAtaprakopaH",
+    "biomedical": "M13.9",
+    "biomedical_name": "Inflammatory Disorder of the Joint",
+    "description": "A general term for any joint condition involving pain, swelling, and stiffness due to inflammation."
+  },
+  {
+    "icd": "SR13",
+    "namaste": "AAA-3",
+    "display": "vAtaprasaraNam",
+    "biomedical": "S13.1",
+    "biomedical_name": "Dislocation/Sprain of Cervical Vertebra",
+    "description": "Injury to the ligaments or displacement of the bones in the neck region."
+  },
+  {
+    "icd": "SR14",
+    "namaste": "AAA-4",
+    "display": "vAtakShayaH",
+    "biomedical": "S14.109",
+    "biomedical_name": "Spinal Cord Injury, Unspecified",
+    "description": "Damage to the spinal cord resulting in a loss of function, sensation, or mobility."
+  },
+  {
+    "icd": "SQ00",
+    "namaste": "AAB-1",
+    "display": "atipralApaH (kEvalavAta)",
+    "biomedical": "F05.9",
+    "biomedical_name": "Delirium, unspecified",
+    "description": "A state of severe mental confusion and sudden changes in brain function, often temporary."
+  },
+  {
+    "icd": "SQ05",
+    "namaste": "AAB-2",
+    "display": "anavasthitacittatvam (kEvalavAta)",
+    "biomedical": "F41.9",
+    "biomedical_name": "Unspecified anxiety disorder",
+    "description": "A general term for excessive worry, nervousness, or fear that is not specified as a distinct disorder."
+  },
+  {
+    "icd": "SP9Y",
+    "namaste": "AAB-3",
+    "display": "a~ggamardaH (kEvalavAta)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Generalized malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SP21",
+    "namaste": "AAB-5",
+    "display": "a~ggaviBraMSaH (kEvalavAta)",
+    "biomedical": "M24.40",
+    "biomedical_name": "Dislocation, unspecified joint",
+    "description": "The displacement of bones forming a joint, without specifying which joint is affected."
+  },
+  {
+    "icd": "SM1P",
+    "namaste": "AAB-7",
+    "display": "arasaj~jatA (kEvalavAta)",
+    "biomedical": "R43.2",
+    "biomedical_name": "Ageusia",
+    "description": "The partial or total loss of the sense of taste."
+  },
+  {
+    "icd": "SP8X",
+    "namaste": "AAB-8",
+    "display": "a~grahanaH (kEvalavAta)",
+    "biomedical": "G40.909",
+    "biomedical_name": "Epilepsy, unspecified",
+    "description": "A neurological disorder marked by recurrent, unprovoked seizures due to abnormal electrical activity in the brain."
+  },
+  {
+    "icd": "SS4P",
+    "namaste": "AAB-9",
+    "display": "asRk-sa~gkaTaH (kEvalavAta)",
+    "biomedical": "I73.9",
+    "biemedical_name": "Peripheral vascular disease",
+    "description": "A circulatory condition in which narrowed blood vessels reduce blood flow, most commonly in the limbs."
+  },
+  {
+    "icd": "SP6L",
+    "namaste": "AAB-10",
+    "display": "atistabdhatvam (kEvalavAta)",
+    "biomedical": "G24.9",
+    "biomedical_name": "Unspecified dyskinesia",
+    "description": "A general term for abnormal, involuntary muscle movements."
+  },
+  {
+    "icd": "SR4M",
+    "namaste": "AAB-11",
+    "display": "atistabdhatvam (kEvalavAta)",
+    "biomedical": "M62.83",
+    "biomedical_name": "Muscle spasm",
+    "description": "A sudden, involuntary contraction of one or more muscles."
+  },
+  {
+    "icd": "SF6L",
+    "namaste": "AAB-12",
+    "display": "anidrA (kEvalavAta)",
+    "biomedical": "G47.00",
+    "biomedical_name": "Insomnia, unspecified",
+    "description": "A common sleep disorder that makes it hard to fall asleep, stay asleep, or get good quality sleep."
+  },
+  {
+    "icd": "SN00",
+    "namaste": "AAB-16",
+    "display": "kaThinatvam (kEvalavAta)",
+    "biomedical": "M34.9",
+    "biomedical_name": "Scleroderma",
+    "description": "A chronic disease causing hardening and tightening of the skin and connective tissues."
+  },
+  {
+    "icd": "SK6Y",
+    "namaste": "AAB-17",
+    "display": "kaTiSUlaH (kEvalavAta)",
+    "biomedical": "M54.5",
+    "biomedical_name": "Low back pain",
+    "description": "Pain or discomfort felt in the lower part of the spine."
+  },
+  {
+    "icd": "SQ08",
+    "namaste": "AAB-18",
+    "display": "kampaH-karapAda-SUnyaH (kEvalavAta)",
+    "biomedical": "G25.0",
+    "biomedical_name": "Essential tremor",
+    "description": "An involuntary, rhythmic shaking, most often affecting the hands, head, or voice."
+  },
+  {
+    "icd": "SP2L",
+    "namaste": "AAB-19",
+    "display": "kaNTikSUlaH (kEvalavAta)",
+    "biomedical": "M54.2",
+    "biomedical_name": "Cervicalgia",
+    "description": "Pain in the neck region."
+  },
+  {
+    "icd": "SP5Y",
+    "namaste": "AAB-20",
+    "display": "karasuptaH (kEvalavAta)",
+    "biomedical": "G56.0",
+    "biomedical_name": "Carpal tunnel syndrome",
+    "description": "Numbness and tingling in the hand and arm caused by a pinched nerve in the wrist."
+  },
+  {
+    "icd": "SR3X",
+    "namaste": "AAB-21",
+    "display": "karagrahaH (kEvalavAta)",
+    "biomedical": "M24.54",
+    "biomedical_name": "Contracture of Hand",
+    "description": "A fixed tightening of the muscles, tendons, or skin that prevents normal hand movement."
+  },
+  {
+    "icd": "SQ1P",
+    "namaste": "AAB-22",
+    "display": "karasUnyaH (kEvalavAta)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Paresthesia of the hand",
+    "description": "An abnormal sensation in the hand, such as tingling, prickling, or numbness."
+  },
+  {
+    "icd": "SP4L",
+    "namaste": "AAB-23",
+    "display": "kAlakhA~jjaH (kEvalavAta)",
+    "biomedical": "R25.2",
+    "biomedical_name": "Clonus",
+    "description": "A set of involuntary, rhythmic, muscular contractions and relaxations."
+  },
+  {
+    "icd": "SM9P",
+    "namaste": "AAB-25",
+    "display": "kaShTasvedanaM (kEvalavAta)",
+    "biomedical": "R61.1",
+    "biomedical_name": "Anhidrosis",
+    "description": "The inability to sweat normally, which can lead to overheating."
+  },
+  {
+    "icd": "SP8P",
+    "namaste": "AAB-26",
+    "display": "kaShTasuptaM (kEvalavAta)",
+    "biomedical": "G47.6",
+    "biomedical_name": "Sleep-related movement disorder",
+    "description": "Conditions involving simple, repetitive muscle movements that disturb sleep."
+  },
+  {
+    "icd": "SR4L",
+    "namaste": "AAB-27",
+    "display": "khallI (kEvalavAta)",
+    "biomedical": "R25.2",
+    "biomedical_name": "Muscle cramp",
+    "description": "A sudden and involuntary contraction of one or more muscles, often painful."
+  },
+  {
+    "icd": "SM3B",
+    "namaste": "AAB-35",
+    "display": "Agnimandya",
+    "biomedical": "K30",
+    "biomedical_name": "Functional Dyspepsia",
+    "description": "Chronic or recurrent pain or discomfort centered in the upper abdomen without an obvious cause."
+  },
+  {
+    "icd": "SM3Y",
+    "namaste": "AAB-35.1",
+    "display": "AjIrNam (kEvalavAta)",
+    "biomedical": "R10.13",
+    "biomedical_name": "Indigestion",
+    "description": "Discomfort or pain in the upper abdomen, often with a feeling of fullness or burning."
+  },
+  {
+    "icd": "SN3L",
+    "namaste": "AAB-29",
+    "display": "nAsopadehaH (kEvalavAta)",
+    "biomedical": "J31.0",
+    "biomedical_name": "Chronic rhinitis",
+    "description": "Persistent inflammation and swelling of the nasal lining, resulting in a stuffy or runny nose."
+  },
+  {
+    "icd": "SQ00-32",
+    "namaste": "AAB-30",
+    "display": "tRtIyakaH (kEvalavAta)",
+    "biomedical": "G44.2",
+    "biomedical_name": "Tension headache",
+    "description": "A common type of headache that causes mild to moderate pain, often described as a tight band around the head."
+  },
+  {
+    "icd": "SQ80",
+    "namaste": "AAB-31",
+    "display": "tiMriraM (kEvalavAta)",
+    "biomedical": "H54.9",
+    "biomedical_name": "Visual impairment, unspecified",
+    "description": "A general term for any decrease in vision that is not specified as a particular disorder."
+  },
+  {
+    "icd": "SR20",
+    "namaste": "AAB-32",
+    "display": "tODaH (kEvalavAta)",
+    "biomedical": "M54.3",
+    "biomedical_name": "Sciatica",
+    "description": "Pain radiating along the sciatic nerve, which runs down one or both legs from the lower back."
+  },
+  {
+    "icd": "SQ00-35",
+    "namaste": "AAB-33",
+    "display": "daMSaH (kEvalavAta)",
+    "biomedical": "R10.3",
+    "biomedical_name": "Pain in tooth",
+    "description": "Discomfort or pain felt around a tooth or jaw, commonly known as a toothache."
+  },
+  {
+    "icd": "SM4P",
+    "namaste": "AAB-34",
+    "display": "dRk-vibhraMaH (kEvalavAta)",
+    "biomedical": "H53.9",
+    "biomedical_name": "Visual disturbance",
+    "description": "A broad term for any difficulty or change in normal vision."
+  },
+  {
+    "icd": "R43",
+    "namaste": "AAB-36",
+    "display": "ghrANanASaH (kEvalavAta)",
+    "biomedical": "R43.0",
+    "biomedical_name": "Anosmia",
+    "description": "The complete inability to smell."
+  },
+  {
+    "icd": "R43-38",
+    "namaste": "AAB-37",
+    "display": "ghrANaj~jAnanASA (kEvalavAta)",
+    "biomedical": "R43.0",
+    "biomedical_name": "Anosmia",
+    "description": "The complete inability to smell."
+  },
+  {
+    "icd": "SP2K",
+    "namaste": "AAB-38",
+    "display": "jihvAstabdhatvam (kEvalavAta)",
+    "biomedical": "R47.1",
+    "biomedical_name": "Dysarthria",
+    "description": "Slurred or slow speech that can be hard to understand, often due to muscle weakness."
+  },
+  {
+    "icd": "SP1Y",
+    "namaste": "AAB-40",
+    "display": "jAnuviSleShaH (kEvalavAta)",
+    "biomedical": "M23.92",
+    "biomedical_name": "Unstable knee",
+    "description": "A feeling that the knee is giving way or is not secure, often due to ligament damage."
+  },
+  {
+    "icd": "SK6Y-41",
+    "namaste": "AAB-41",
+    "display": "jA~ghASUlaH (kEvalavAta)",
+    "biomedical": "M79.600",
+    "biomedical_name": "Lower extremity pain, unspecified",
+    "description": "General pain or discomfort in the leg or foot that is not attributable to a specific cause."
+  },
+  {
+    "icd": "SQ08",
+    "namaste": "AAB-42",
+    "display": "jhaTI (kEvalavAta)",
+    "biomedical": "G25.0",
+    "biomedical_name": "Essential tremor",
+    "description": "An involuntary, rhythmic shaking, most often affecting the hands, head, or voice."
+  },
+  {
+    "icd": "SM2P",
+    "namaste": "AAB-43",
+    "display": "damSUlaH (kEvalavAta)",
+    "biomedical": "K08.8",
+    "biomedical_name": "Disorder of teeth and supporting structures",
+    "description": "A general classification for various unlisted conditions affecting teeth, gums, and related tissues."
+  },
+  {
+    "icd": "SM1T",
+    "namaste": "AAB-44",
+    "display": "daMStaH (kEvalavAta)",
+    "biomedical": "K02.9",
+    "biomedical_name": "Dental Caries, unspecified",
+    "description": "Tooth decay or cavities caused by bacteria, without specifying the exact tooth affected."
+  },
+  {
+    "icd": "SN9P",
+    "namaste": "AAB-45",
+    "display": "dAruNaM (kEvalavAta)",
+    "biomedical": "G43.909",
+    "biomedical_name": "Migraine, unspecified",
+    "description": "A recurrent, throbbing headache that is often accompanied by nausea and sensitivity to light and sound."
+  },
+  {
+    "icd": "SQ00-46",
+    "namaste": "AAB-46",
+    "display": "dRuMdRuM (kEvalavAta)",
+    "biomedical": "H93.19",
+    "biomedical_name": "Tinnitus, unspecified",
+    "description": "The perception of noise or ringing in the ears when no external sound is present."
+  },
+  {
+    "icd": "SP21-47",
+    "namaste": "AAB-47",
+    "display": "dUraM ca nA~gatiH (kEvalavAta)",
+    "biomedical": "R26.9",
+    "biomedical_name": "Gait abnormality, unspecified",
+    "description": "An unusual or uneven way of walking that is not further specified."
+  },
+  {
+    "icd": "SR20-48",
+    "namaste": "AAB-48",
+    "display": "prAyasaH (kEvalavAta)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Fatigue, unspecified",
+    "description": "Extreme tiredness or exhaustion that doesn't improve with rest."
+  },
+  {
+    "icd": "SQ1L",
+    "namaste": "AAB-49",
+    "display": "pADavRttatA (kEvalavAta)",
+    "biomedical": "M25.679",
+    "biomedical_name": "Stiffness of joint, ankle and foot",
+    "description": "A limited range of motion or reduced flexibility in the ankle and foot joints."
+  },
+  {
+    "icd": "SP5P",
+    "namaste": "AAB-50",
+    "display": "pAdaSUnyaH (kEvalavAta)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Paresthesia, lower limb",
+    "description": "An abnormal sensation in the legs or feet, such as tingling, prickling, or numbness."
+  },
+  {
+    "icd": "SP4Y",
+    "namaste": "AAB-51",
+    "display": "pAdasUlaH (kEvalavAta)",
+    "biomedical": "G62.9",
+    "biomedical_name": "Unspecified polyneuropathy",
+    "description": "Damage or disease affecting multiple peripheral nerves throughout the body."
+  },
+  {
+    "icd": "SN4R",
+    "namaste": "AAB-52",
+    "display": "pAruShyam (kEvalavAta)",
+    "biomedical": "L85.3",
+    "biomedical_name": "Dry skin",
+    "description": "A condition of rough, flaky skin that lacks sufficient moisture."
+  },
+  {
+    "icd": "SK6Y",
+    "namaste": "AAB-53",
+    "display": "pRShTagrahaH (kEvalavAta)",
+    "biomedical": "M54.50",
+    "biomedical_name": "Lumbago",
+    "description": "Non-specific lower back pain."
+  },
+  {
+    "icd": "SK6Y-54",
+    "namaste": "AAB-54",
+    "display": "pRShTasuMnyaH (kEvalavAta)",
+    "biomedical": "M54.5",
+    "biomedical_name": "Low back pain",
+    "description": "Pain or discomfort felt in the lower part of the spine."
+  },
+  {
+    "icd": "SP5P-55",
+    "namaste": "AAB-56",
+    "display": "pRShThasuMnyatA (kEvalavAta)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Paresthesia of back",
+    "description": "An abnormal sensation in the back, such as tingling, prickling, or numbness."
+  },
+  {
+    "icd": "SR4L",
+    "namaste": "AAB-57",
+    "display": "phakkA (kEvalavAta)",
+    "biomedical": "R25.2",
+    "biomedical_name": "Muscle spasm",
+    "description": "A sudden, involuntary contraction of one or more muscles."
+  },
+  {
+    "icd": "SQ1P",
+    "namaste": "AAB-58",
+    "display": "BramaH (kEvalavAta)",
+    "biomedical": "R42",
+    "biomedical_name": "Vertigo",
+    "description": "A sensation of whirling and loss of balance, often associated with inner ear problems."
+  },
+  {
+    "icd": "SP9Y",
+    "namaste": "AAB-59",
+    "display": "Ba~ggamardaH (kEvalavAta)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Generalized malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SP8X",
+    "namaste": "AAB-60",
+    "display": "madagrahaH (kEvalavAta)",
+    "biomedical": "F10.92",
+    "biomedical_name": "Intoxication delirium",
+    "description": "A state of confusion and disorientation induced by the consumption of intoxicating substances."
+  },
+  {
+    "icd": "SK3Y",
+    "namaste": "AAB-61",
+    "display": "manyAstaMBhaH (kEvalavAta)",
+    "biomedical": "M43.6",
+    "biomedical_name": "Torticollis",
+    "description": "A stiff neck condition where the head is twisted to one side."
+  },
+  {
+    "icd": "SP6L",
+    "namaste": "AAB-62",
+    "display": "mandaM calanaM (kEvalavAta)",
+    "biomedical": "R26.89",
+    "biomedical_name": "Bradykinesia",
+    "description": "Extreme slowness of movement, a common symptom of Parkinson's disease."
+  },
+  {
+    "icd": "SQ00-62",
+    "namaste": "AAB-63",
+    "display": "mandaM prAcAratvam (kEvalavAta)",
+    "biomedical": "F80.89",
+    "biomedical_name": "Motor retardation",
+    "description": "A pathological slowing down of thoughts and physical movements."
+  },
+  {
+    "icd": "SF6L",
+    "namaste": "AAB-64",
+    "display": "mAndaH (kEvalavAta)",
+    "biomedical": "R53.83",
+    "biomedical_name": "Lethargy",
+    "description": "A state of sluggishness, apathy, and extreme tiredness."
+  },
+  {
+    "icd": "SN4Y",
+    "namaste": "AAB-65",
+    "display": "mUtras~gkaTaH (kEvalavAta)",
+    "biomedical": "R39.11",
+    "biomedical_name": "Urinary hesitancy",
+    "description": "Difficulty in beginning the flow of urine, often with a weak stream."
+  },
+  {
+    "icd": "SN4Y-65",
+    "namaste": "AAB-66",
+    "display": "mUtrarODhaH (kEvalavAta)",
+    "biomedical": "R33.8",
+    "biomedical_name": "Urinary retention",
+    "description": "The inability to completely empty the bladder."
+  },
+  {
+    "icd": "SM0P",
+    "namaste": "AAB-67",
+    "display": "muKaSUnyaM (kEvalavAta)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Oral paresthesia",
+    "description": "An abnormal sensation in the mouth, such as tingling, prickling, or numbness."
+  },
+  {
+    "icd": "SM1P",
+    "namaste": "AAB-68",
+    "display": "muKadaMsaH (kEvalavAta)",
+    "biomedical": "R68.84",
+    "biomedical_name": "Jaw pain",
+    "description": "Pain or discomfort felt in the jaw area."
+  },
+  {
+    "icd": "SP5P-68",
+    "namaste": "AAB-69",
+    "display": "mRduvRttiH (kEvalavAta)",
+    "biomedical": "M62.81",
+    "biomedical_name": "Muscle weakness",
+    "description": "Lack of muscle strength, often requiring increased effort to perform simple tasks."
+  },
+  {
+    "icd": "SF6L-69",
+    "namaste": "AAB-70",
+    "display": "rAtryanidrA (kEvalavAta)",
+    "biomedical": "G47.00",
+    "biomedical_name": "Insomnia",
+    "description": "A common sleep disorder that makes it hard to fall asleep, stay asleep, or get good quality sleep."
+  },
+  {
+    "icd": "SN4R",
+    "namaste": "AAB-71",
+    "display": "rOkShaNataH (kEvalavAta)",
+    "biomedical": "L85.3",
+    "biomedical_name": "Dry skin",
+    "description": "A condition of rough, flaky skin that lacks sufficient moisture."
+  },
+  {
+    "icd": "SQ1P-71",
+    "namaste": "AAB-72",
+    "display": "lomaharShataM (kEvalavAta)",
+    "biomedical": "R20.8",
+    "biomedical_name": "Piloerection",
+    "description": "The involuntary erection of hairs on the skin, often called goosebumps."
+  },
+  {
+    "icd": "SP2K",
+    "namaste": "AAB-73",
+    "display": "vAgasa~gkaTaH (kEvalavAta)",
+    "biomedical": "R49.2",
+    "biomedical_name": "Dysphonia",
+    "description": "Difficulty in speaking due to a physical disorder of the vocal organs, causing hoarseness or weak voice."
+  },
+  {
+    "icd": "SR11-73",
+    "namaste": "AAB-74",
+    "display": "viparItavAtaH (kEvalavAta)",
+    "biomedical": "G44.2",
+    "biomedical_name": "Tension Headache",
+    "description": "A common type of headache that causes mild to moderate pain, often described as a tight band around the head."
+  },
+  {
+    "icd": "R50",
+    "namaste": "AAB-75",
+    "display": "viShamaM (kEvalavAta)",
+    "biomedical": "R50.9",
+    "biomedical_name": "Irregular fever",
+    "description": "A fever pattern where the body temperature fluctuates but remains above normal."
+  },
+  {
+    "icd": "SP6L-75",
+    "namaste": "AAB-76",
+    "display": "viShama-calanaM (kEvalavAta)",
+    "biomedical": "R27.9",
+    "biomedical_name": "Unspecified ataxia",
+    "description": "A lack of muscle coordination during voluntary movements, such as walking or picking up objects."
+  },
+  {
+    "icd": "SQ08-76",
+    "namaste": "AAB-77",
+    "display": "vRkShAkArakampaH (kEvalavAta)",
+    "biomedical": "G20",
+    "biomedical_name": "Parkinson's disease",
+    "description": "A progressive nervous system disorder affecting movement, often causing tremor and stiffness."
+  },
+  {
+    "icd": "SP21-77",
+    "namaste": "AAB-78",
+    "display": "vRddhAnga-vaikalyaM (kEvalavAta)",
+    "biomedical": "R54",
+    "biomedical_name": "Senility",
+    "description": "The physical and mental deterioration characteristic of old age."
+  },
+  {
+    "icd": "SK6Y-78",
+    "namaste": "AAB-80",
+    "display": "veNIpragrahaH (kEvalavAta)",
+    "biomedical": "M53.3",
+    "biomedical_name": "Coccygodynia",
+    "description": "Pain in the tailbone area (coccyx)."
+  },
+  {
+    "icd": "SN8Y",
+    "namaste": "AAB-81",
+    "display": "SukraSNataH (kEvalavAta)",
+    "biomedical": "N46.9",
+    "biomedical_name": "Male infertility",
+    "description": "The inability of a male to cause pregnancy after a year or more of unprotected intercourse."
+  },
+  {
+    "icd": "SP9Y-80",
+    "namaste": "AAB-82",
+    "display": "SramaH (kEvalavAta)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Fatigue",
+    "description": "Extreme tiredness or exhaustion that doesn't improve with rest."
+  },
+  {
+    "icd": "SP5P-81",
+    "namaste": "AAB-83",
+    "display": "SUnyaM (kEvalavAta)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Paresthesia, generalized",
+    "description": "An abnormal sensation, such as tingling, prickling, or numbness, felt across the body."
+  },
+  {
+    "icd": "SQ1P-82",
+    "namaste": "AAB-84",
+    "display": "SirAHarShaH (kEvalavAta)",
+    "biomedical": "R51",
+    "biomedical_name": "Cephalalgia",
+    "description": "A medical term for pain in the head, often used interchangeably with headache."
+  },
+  {
+    "icd": "SK3Y-83",
+    "namaste": "AAB-85",
+    "display": "SirASTuMBhatvam (kEvalavAta)",
+    "biomedical": "G44.229",
+    "biomedical_name": "Tension-type headache",
+    "description": "A common headache characterized by a dull, aching pain and a feeling of tightness or pressure around the head."
+  },
+  {
+    "icd": "SQ1P-84",
+    "namaste": "AAB-86",
+    "display": "SirAhArShaH (kEvalavAta)",
+    "biomedical": "R51",
+    "biomedical_name": "Headache",
+    "description": "Pain or discomfort in the head or face."
+  },
+  {
+    "icd": "SN4L",
+    "namaste": "AAB-87",
+    "display": "SirAsUkShmatvam (kEvalavAta)",
+    "biomedical": "M62.83",
+    "biomedical_name": "Muscle tension",
+    "description": "The state of a muscle remaining semi-contracted for an extended period."
+  },
+  {
+    "icd": "SN9P-86",
+    "namaste": "AAB-88",
+    "display": "SirO-gauravaM (kEvalavAta)",
+    "biomedical": "R51",
+    "biomedical_name": "Head pressure/Heaviness",
+    "description": "A feeling of discomfort or weighted sensation in the head, often associated with headaches."
+  },
+  {
+    "icd": "SN9P-87",
+    "namaste": "AAB-89",
+    "display": "SirOrujaM (kEvalavAta)",
+    "biomedical": "R51",
+    "biomedical_name": "Headache, unspecified",
+    "description": "Pain or discomfort in the head or face that is not specified as a particular type."
+  },
+  {
+    "icd": "SK0Y-88",
+    "namaste": "AAB-90",
+    "display": "SirO-bhedaH (kEvalavAta)",
+    "biomedical": "G43.009",
+    "biomedical_name": "Migraine without aura",
+    "description": "A recurrent, throbbing headache that occurs without the typical sensory disturbances preceding it."
+  },
+  {
+    "icd": "SN9P-89",
+    "namaste": "AAB-91",
+    "display": "SirA-bhAraH (kEvalavAta)",
+    "biomedical": "R51",
+    "biomedical_name": "Head pressure/Heaviness",
+    "description": "A feeling of discomfort or weighted sensation in the head, often associated with headaches."
+  },
+  {
+    "icd": "SP2K-90",
+    "namaste": "AAB-92",
+    "display": "SirAdhvaMSanam (kEvalavAta)",
+    "biomedical": "S07.9",
+    "biomedical_name": "Crushing injury of head",
+    "description": "Severe trauma to the head caused by compression or a crushing force."
+  },
+  {
+    "icd": "SP21-91",
+    "namaste": "AAB-93",
+    "display": "SirASandhi-vaikalyaM (kEvalavAta)",
+    "biomedical": "M13.9",
+    "biomedical_name": "Arthropathy, unspecified",
+    "description": "A general term for any non-inflammatory disease of a joint."
+  },
+  {
+    "icd": "SQ1P-92",
+    "namaste": "AAB-94",
+    "display": "SirA-harShaH (kEvalavAta)",
+    "biomedical": "R51",
+    "biomedical_name": "Cephalalgia",
+    "description": "A medical term for pain in the head, often used interchangeably with headache."
+  },
+  {
+    "icd": "SL7Y",
+    "namaste": "AAB-95",
+    "display": "SirAsPUrtiH (kEvalavAta)",
+    "biomedical": "R25.8",
+    "biomedical_name": "Muscle fasciculation",
+    "description": "A small, involuntary, rapid twitch or tremor in a muscle, often visible under the skin."
+  },
+  {
+    "icd": "SR3X-94",
+    "namaste": "AAB-96",
+    "display": "hRudgrahaH (kEvalavAta)",
+    "biomedical": "R07.89",
+    "biomedical_name": "Chest pain",
+    "description": "Discomfort or pain felt anywhere in the chest area."
+  },
+  {
+    "icd": "SR11-95",
+    "namaste": "AAB-97",
+    "display": "hRudravaNaH (kEvalavAta)",
+    "biomedical": "R00.2",
+    "biomedical_name": "Palpitations",
+    "description": "A sensation that the heart is racing, pounding, or skipping beats."
+  },
+  {
+    "icd": "SQ00-96",
+    "namaste": "AAB-98",
+    "display": "hRdaya-pratataM (kEvalavAta)",
+    "biomedical": "R07.89",
+    "biomedical_name": "Chest pain",
+    "description": "Discomfort or pain felt anywhere in the chest area."
+  },
+  {
+    "icd": "SP9Y-97",
+    "namaste": "ABB-1",
+    "display": "krodhaH (kEvalapitta)",
+    "biomedical": "R45.4",
+    "biomedical_name": "Anger/Irritability",
+    "description": "Feelings of hostility, annoyance, or rage."
+  },
+  {
+    "icd": "SP9L",
+    "namaste": "ABB-2",
+    "display": "gAtrapAkaH (kEvalapitta)",
+    "biomedical": "L03.90",
+    "biomedical_name": "Cellulitis",
+    "description": "A common, potentially serious bacterial skin infection that causes redness, swelling, and pain."
+  },
+  {
+    "icd": "SN9Y",
+    "namaste": "ABB-3",
+    "display": "dAhaH (kEvalapitta)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Burning sensation",
+    "description": "A feeling of heat or stinging, often on the skin or mucous membranes."
+  },
+  {
+    "icd": "SN9Y-100",
+    "namaste": "ABB-4",
+    "display": "duShTa-piNDikA (kEvalapitta)",
+    "biomedical": "L02.91",
+    "biomedical_name": "Abscess of skin, unspecified",
+    "description": "A collection of pus that has built up within the tissue of the skin."
+  },
+  {
+    "icd": "SF2Y",
+    "namaste": "ABB-5",
+    "display": "mUrChA (kEvalapitta)",
+    "biomedical": "R55",
+    "biomedical_name": "Syncope and collapse",
+    "description": "Temporary loss of consciousness due to a sudden drop in blood pressure, also known as fainting."
+  },
+  {
+    "icd": "SM1P-102",
+    "namaste": "ABB-6",
+    "display": "muKapAkaH (kEvalapitta)",
+    "biomedical": "K12.0",
+    "biomedical_name": "Recurrent oral aphthae (Canker sore)",
+    "description": "Small, painful sores that develop on the soft tissues inside the mouth."
+  },
+  {
+    "icd": "SM0P",
+    "namaste": "ABB-7",
+    "display": "muKa-durgandhatvaM (kEvalapitta)",
+    "biomedical": "R19.6",
+    "biomedical_name": "Halitosis",
+    "description": "A condition characterized by an unpleasant odor emanating from the mouth, known as bad breath."
+  },
+  {
+    "icd": "SN3L",
+    "namaste": "ABB-8",
+    "display": "Siro-mAthaH (kEvalapitta)",
+    "biomedical": "R41.0",
+    "biomedical_name": "Disorientation, unspecified (Confusion)",
+    "description": "A state where a person is unable to determine their location, time, or identity."
+  },
+  {
+    "icd": "SN5Y",
+    "namaste": "ABB-9",
+    "display": "s~gvedaH (kEvalapitta)",
+    "biomedical": "R61.9",
+    "biomedical_name": "Hyperhidrosis, unspecified",
+    "description": "Excessive or abnormal sweating that is not related to heat or exercise."
+  },
+  {
+    "icd": "SM3Y",
+    "namaste": "ABB-10",
+    "display": "haRitavarNa-mala-pravRttiH (kEvalapitta)",
+    "biomedical": "R19.5",
+    "biomedical_name": "Other fecal abnormalities (Green stool)",
+    "description": "Stool that is green in color, often due to rapid passage through the digestive tract."
+  },
+  {
+    "icd": "SR12",
+    "namaste": "ABB-11",
+    "display": "hRdaya-dAhaH (kEvalapitta)",
+    "biomedical": "R12",
+    "biomedical_name": "Heartburn",
+    "description": "A burning sensation in the chest or throat, typically caused by stomach acid regurgitation."
+  },
+  {
+    "icd": "SN00",
+    "namaste": "ABB-12",
+    "display": "kATinyaM (kEvalapitta)",
+    "biomedical": "R23.4",
+    "biomedical_name": "Induration, localized",
+    "description": "An increase in the fibrous elements in tissue, causing an area to feel abnormally hard."
+  },
+  {
+    "icd": "SN4R",
+    "namaste": "ABB-13",
+    "display": "kANDuyaH (kEvalapitta)",
+    "biomedical": "L29.9",
+    "biomedical_name": "Pruritus, unspecified",
+    "description": "The medical term for an uncomfortable, irritating sensation that creates an urge to scratch, also known as itching."
+  },
+  {
+    "icd": "SM2P",
+    "namaste": "ABB-14",
+    "display": "kaTAyaM (kEvalapitta)",
+    "biomedical": "R43.8",
+    "biomedical_name": "Dysgeusia, unspecified (Disturbance of taste)",
+    "description": "A distortion of the sense of taste, causing unpleasant or altered flavor perceptions."
+  },
+  {
+    "icd": "SD8Y",
+    "namaste": "ABB-15",
+    "display": "kAruNyanASaH (kEvalapitta)",
+    "biomedical": "F43.25",
+    "biomedical_name": "Adjustment disorder with mixed disturbance of emotions and conduct",
+    "description": "Difficulty adapting to a stressor, resulting in a combination of emotional symptoms and behavioral problems."
+  },
+  {
+    "icd": "SP6L",
+    "namaste": "ABB-16",
+    "display": "kShipra-vegatvaM (kEvalapitta)",
+    "biomedical": "G24.9",
+    "biomedical_name": "Unspecified dyskinesia",
+    "description": "A general term for abnormal, involuntary muscle movements."
+  },
+  {
+    "icd": "SM9P",
+    "namaste": "ABB-17",
+    "display": "klEdaH (kEvalapitta)",
+    "biomedical": "L24.A0",
+    "biomedical_name": "Moisture-associated skin damage (MASD)",
+    "description": "Inflammation and erosion of the skin caused by prolonged exposure to moisture, such as sweat or urine."
+  },
+  {
+    "icd": "SN5Y",
+    "namaste": "ABB-18",
+    "display": "kShINasvedanaM (kEvalapitta)",
+    "biomedical": "L74.4",
+    "biomedical_name": "Anhidrosis",
+    "description": "The inability to sweat normally, which can lead to overheating."
+  },
+  {
+    "icd": "SM0P-115",
+    "namaste": "ABB-19",
+    "display": "gaNDa-pakvaH (kEvalapitta)",
+    "biomedical": "K11.3",
+    "biomedical_name": "Abscess of salivary gland",
+    "description": "A collection of pus in the tissue of a salivary gland, usually caused by a bacterial infection."
+  },
+  {
+    "icd": "SP9Y-116",
+    "namaste": "ABB-20",
+    "display": "glAniH (kEvalapitta)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "R50-117",
+    "namaste": "ABB-21",
+    "display": "raktajvarA (kEvalapitta)",
+    "biomedical": "A99",
+    "biomedical_name": "Unspecified viral hemorrhagic fever",
+    "description": "A broad term for severe viral illnesses often accompanied by high fever and bleeding disorders."
+  },
+  {
+    "icd": "SM3Y-118",
+    "namaste": "ABB-22",
+    "display": "tiktasyatvaM (kEvalapitta)",
+    "biomedical": "R43.8",
+    "biomedical_name": "Other disturbances of smell and taste",
+    "description": "A broad category for various sensory issues affecting the ability to smell and taste."
+  },
+  {
+    "icd": "SN4L",
+    "namaste": "ABB-23",
+    "display": "tejaH-sa~gkaTaM (kEvalapitta)",
+    "biomedical": "M62.83",
+    "biomedical_name": "Muscle tension",
+    "description": "The state of a muscle remaining semi-contracted for an extended period."
+  },
+  {
+    "icd": "R43-120",
+    "namaste": "ABB-24",
+    "display": "tiktarasaH (kEvalapitta)",
+    "biomedical": "R43.8",
+    "biomedical_name": "Other disturbances of smell and taste",
+    "description": "A broad category for various sensory issues affecting the ability to smell and taste."
+  },
+  {
+    "icd": "R43-121",
+    "namaste": "ABB-25",
+    "display": "tIkShNarasaH (kEvalapitta)",
+    "biomedical": "R43.8",
+    "biomedical_name": "Other disturbances of smell and taste",
+    "description": "A broad category for various sensory issues affecting the ability to smell and taste."
+  },
+  {
+    "icd": "R43-122",
+    "namaste": "ABB-26",
+    "display": "dUrvaNaM (kEvalapitta)",
+    "biomedical": "R43.8",
+    "biomedical_name": "Hyposmia",
+    "description": "A reduced ability to smell and to detect odors."
+  },
+  {
+    "icd": "SM4P",
+    "namaste": "ABB-27",
+    "display": "dRktapanaM (kEvalapitta)",
+    "biomedical": "H53.9",
+    "biomedical_name": "Visual disturbance",
+    "description": "A broad term for any difficulty or change in normal vision."
+  },
+  {
+    "icd": "SM0P-124",
+    "namaste": "ABB-28",
+    "display": "dRk-klEdaH (kEvalapitta)",
+    "biomedical": "H04.1",
+    "biomedical_name": "Lacrimation",
+    "description": "The excessive flow of tears, also known as watery eyes."
+  },
+  {
+    "icd": "SF6L-125",
+    "namaste": "ABB-29",
+    "display": "dIrghanidrA (kEvalapitta)",
+    "biomedical": "G47.10",
+    "biomedical_name": "Hypersomnia, unspecified",
+    "description": "A condition characterized by excessive daytime sleepiness or abnormally prolonged nighttime sleep."
+  },
+  {
+    "icd": "SN9Y-126",
+    "namaste": "ABB-30",
+    "display": "pAkaH (kEvalapitta)",
+    "biomedical": "L02.91",
+    "biomedical_name": "Abscess of skin, unspecified",
+    "description": "A collection of pus that has built up within the tissue of the skin."
+  },
+  {
+    "icd": "SN4Y",
+    "namaste": "ABB-31",
+    "display": "pIta-varNamUtratvaM (kEvalapitta)",
+    "biomedical": "R82.99",
+    "biomedical_name": "Abnormal urine color",
+    "description": "Urine that has an unusual shade, such as being excessively dark yellow or brown."
+  },
+  {
+    "icd": "SM4P-128",
+    "namaste": "ABB-32",
+    "display": "pitta-dRuShTih (kEvalapitta)",
+    "biomedical": "H53.03",
+    "biomedical_name": "Xanthopsia",
+    "description": "A visual condition where all objects appear tinged with yellow."
+  },
+  {
+    "icd": "SN9Y-129",
+    "namaste": "ABB-33",
+    "display": "pIta-varNatvaM (kEvalapitta)",
+    "biomedical": "R17",
+    "biomedical_name": "Jaundice, unspecified",
+    "description": "A condition in which the skin and whites of the eyes turn yellow due to excess bilirubin."
+  },
+  {
+    "icd": "SN9Y-130",
+    "namaste": "ABB-34",
+    "display": "pANDu-vaNa-tvam (kEvalapitta)",
+    "biomedical": "R23.1",
+    "biomedical_name": "Pallor",
+    "description": "An unhealthy pale appearance of the skin."
+  },
+  {
+    "icd": "SM4P-131",
+    "namaste": "ABB-35",
+    "display": "pIta-varNadRuShTih (kEvalapitta)",
+    "biomedical": "H53.03",
+    "biomedical_name": "Xanthopsia",
+    "description": "A visual condition where all objects appear tinged with yellow."
+  },
+  {
+    "icd": "SD8Y-132",
+    "namaste": "ABB-36",
+    "display": "pUrvakalpita-duHkam (kEvalapitta)",
+    "biomedical": "F43.21",
+    "biomedical_name": "Adjustment disorder with depressed mood",
+    "description": "Difficulty coping with a stressful life event, resulting in persistent sadness, hopelessness, or tearfulness."
+  },
+  {
+    "icd": "SR12-133",
+    "namaste": "ABB-38",
+    "display": "pRShTha-dAhaH (kEvalapitta)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Burning sensation of back",
+    "description": "A feeling of heat or stinging felt on the skin of the back."
+  },
+  {
+    "icd": "SQ1P",
+    "namaste": "ABB-39",
+    "display": "BramaH (kEvalapitta)",
+    "biomedical": "R42",
+    "biomedical_name": "Vertigo",
+    "description": "A sensation of whirling and loss of balance, often associated with inner ear problems."
+  },
+  {
+    "icd": "SM3Y-135",
+    "namaste": "ABB-40",
+    "display": "mala-gaNDaH (kEvalapitta)",
+    "biomedical": "K59.00",
+    "biomedical_name": "Constipation",
+    "description": "Infrequent bowel movements or difficulty passing stool."
+  },
+  {
+    "icd": "SF2Y",
+    "namaste": "ABB-41",
+    "display": "mUrChA (kEvalapitta)",
+    "biomedical": "R55",
+    "biomedical_name": "Syncope and collapse",
+    "description": "Temporary loss of consciousness due to a sudden drop in blood pressure, also known as fainting."
+  },
+  {
+    "icd": "SN4R",
+    "namaste": "ABB-42",
+    "display": "mRdu-sparSanaM (kEvalapitta)",
+    "biomedical": "L85.3",
+    "biomedical_name": "Dry skin",
+    "description": "A condition of rough, flaky skin that lacks sufficient moisture."
+  },
+  {
+    "icd": "SN5Y",
+    "namaste": "ABB-43",
+    "display": "SImBa (kEvalapitta)",
+    "biomedical": "B86",
+    "biomedical_name": "Scabies",
+    "description": "A highly contagious skin infestation caused by a mite that burrows into the skin."
+  },
+  {
+    "icd": "SN5Y-139",
+    "namaste": "ABB-44",
+    "display": "SImBa-samAna-piNDikA (kEvalapitta)",
+    "biomedical": "L50.9",
+    "biomedical_name": "Papular urticaria",
+    "description": "An allergic skin reaction characterized by intensely itchy, raised red bumps, often from insect bites."
+  },
+  {
+    "icd": "SS4P",
+    "namaste": "ABB-46",
+    "display": "SItalASva-sa~gkaTaM (kEvalapitta)",
+    "biomedical": "I24.9",
+    "biomedical_name": "Acute coronary syndrome",
+    "description": "A group of conditions associated with sudden, reduced blood flow to the heart."
+  },
+  {
+    "icd": "SN8Y",
+    "namaste": "ABB-47",
+    "display": "rati-nAStitvam (kEvalapitta)",
+    "biomedical": "F52.0",
+    "biomedical_name": "Aversion to sexual activity",
+    "description": "A psychological state involving avoidance of and lack of interest in sexual activity."
+  },
+  {
+    "icd": "SD8Y",
+    "namaste": "ABB-48",
+    "display": "rAgaH (kEvalapitta)",
+    "biomedical": "R45.4",
+    "biomedical_name": "Irritability/Rage",
+    "description": "A state of easily being annoyed or provoked, escalating to intense anger."
+  },
+  {
+    "icd": "SP9Y-143",
+    "namaste": "ABB-49",
+    "display": "rAtri-glAniH (kEvalapitta)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SN5Y-144",
+    "namaste": "ABB-50",
+    "display": "rUpa-vikAraH (kEvalapitta)",
+    "biomedical": "R23.8",
+    "biomedical_name": "Skin lesion, unspecified",
+    "description": "A broad term for any abnormal change in the skin, such as a bump, sore, or rash."
+  },
+  {
+    "icd": "SQ00-145",
+    "namaste": "ABB-51",
+    "display": "lOlyaM (kEvalapitta)",
+    "biomedical": "R63.5",
+    "biomedical_name": "Appetite disorder",
+    "description": "A general term for conditions involving abnormal eating habits, such as overeating or lack of hunger."
+  },
+  {
+    "icd": "SN8Y-146",
+    "namaste": "ABB-52",
+    "display": "SukraSNataH (kEvalapitta)",
+    "biomedical": "N46.9",
+    "biomedical_name": "Male infertility",
+    "description": "The inability of a male to cause pregnancy after a year or more of unprotected intercourse."
+  },
+  {
+    "icd": "SP9Y-147",
+    "namaste": "ABB-53",
+    "display": "SUlaM (kEvalapitta)",
+    "biomedical": "R10.9",
+    "biomedical_name": "Abdominal pain, unspecified",
+    "description": "General pain or discomfort in the region of the abdomen that is not specified by location or cause."
+  },
+  {
+    "icd": "SP9Y-148",
+    "namaste": "ABB-54",
+    "display": "SramaH (kEvalapitta)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Fatigue",
+    "description": "Extreme tiredness or exhaustion that doesn't improve with rest."
+  },
+  {
+    "icd": "SP9Y-149",
+    "namaste": "ABB-55",
+    "display": "Srama-glAniH (kEvalapitta)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SD8Y-150",
+    "namaste": "ABB-56",
+    "display": "sAhasitvaM (kEvalapitta)",
+    "biomedical": "F60.9",
+    "biomedical_name": "Impulsivity",
+    "description": "The tendency to act on a whim without considering the consequences."
+  },
+  {
+    "icd": "SM4P-151",
+    "namaste": "ABB-57",
+    "display": "sUkShma-dRuShTih (kEvalapitta)",
+    "biomedical": "H52.0",
+    "biomedical_name": "Hypermetropia",
+    "description": "Farsightedness, a condition where distant objects are seen clearly, but close objects are blurry."
+  },
+  {
+    "icd": "SM9P-152",
+    "namaste": "ABB-58",
+    "display": "snEha-samanaM (kEvalapitta)",
+    "biomedical": "L21.9",
+    "biomedical_name": "Seborrhea",
+    "description": "A condition characterized by excessive discharge of sebum from the sebaceous glands, leading to oily skin."
+  },
+  {
+    "icd": "SN5Y-153",
+    "namaste": "ABB-59",
+    "display": "svedaSruTiH (kEvalapitta)",
+    "biomedical": "L74.5",
+    "biomedical_name": "Hyperhidrosis, localized",
+    "description": "Excessive or abnormal sweating that is confined to a specific part of the body."
+  },
+  {
+    "icd": "SM0P-154",
+    "namaste": "ABB-60",
+    "display": "sRkkA (kEvalapitta)",
+    "biomedical": "K13.0",
+    "biomedical_name": "Angular stomatitis",
+    "description": "Inflammation and cracking at one or both corners of the mouth."
+  },
+  {
+    "icd": "SM3Y-155",
+    "namaste": "ABB-61",
+    "display": "hRllAsaH (kEvalapitta)",
+    "biomedical": "R11.0",
+    "biomedical_name": "Nausea, unspecified",
+    "description": "A general feeling of sickness or discomfort in the stomach that often precedes vomiting."
+  },
+  {
+    "icd": "SR4L-156",
+    "namaste": "ACB-1",
+    "display": "A~ggadravatvaM (kEvalakapha)",
+    "biomedical": "R60.9",
+    "biomedical_name": "Edema",
+    "description": "Swelling caused by excess fluid trapped in the body's tissues."
+  },
+  {
+    "icd": "SN00-157",
+    "namaste": "ACB-2",
+    "display": "kATinyaM (kEvalakapha)",
+    "biomedical": "R23.4",
+    "biomedical_name": "Induration, localized",
+    "description": "An increase in the fibrous elements in tissue, causing an area to feel abnormally hard."
+  },
+  {
+    "icd": "SN9P-158",
+    "namaste": "ACB-3",
+    "display": "kapha-gauravaM (kEvalakapha)",
+    "biomedical": "R53.83",
+    "biomedical_name": "Lethargy",
+    "description": "A state of sluggishness, apathy, and extreme tiredness."
+  },
+  {
+    "icd": "SR3P",
+    "namaste": "ACB-4",
+    "display": "kapharOdhanaM (kEvalakapha)",
+    "biomedical": "J42",
+    "biomedical_name": "Chronic bronchitis",
+    "description": "Long-term inflammation of the bronchi, leading to excessive mucus production and a persistent cough."
+  },
+  {
+    "icd": "SN4R-160",
+    "namaste": "ACB-5",
+    "display": "kANDuyaM (kEvalakapha)",
+    "biomedical": "L29.9",
+    "biomedical_name": "Pruritus, unspecified",
+    "description": "The medical term for an uncomfortable, irritating sensation that creates an urge to scratch, also known as itching."
+  },
+  {
+    "icd": "SP9Y-161",
+    "namaste": "ACB-6",
+    "display": "glAniH (kEvalakapha)",
+    "biomedical": "R53.83",
+    "biomedial_name": "Lethargy",
+    "description": "A state of sluggishness, apathy, and extreme tiredness."
+  },
+  {
+    "icd": "SM3Y-162",
+    "namaste": "ACB-7",
+    "display": "tIta-muKatvaM (kEvalakapha)",
+    "biomedical": "R43.8",
+    "biomedical_name": "Dysgeusia",
+    "description": "A distortion of the sense of taste, causing unpleasant or altered flavor perceptions."
+  },
+  {
+    "icd": "SN9Y-163",
+    "namaste": "ACB-8",
+    "display": "dAhaH (kEvalakapha)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Burning sensation",
+    "description": "A feeling of heat or stinging, often on the skin or mucous membranes."
+  },
+  {
+    "icd": "SF6L-164",
+    "namaste": "ACB-9",
+    "display": "dIrgha-kalpa-nidrA (kEvalakapha)",
+    "biomedical": "G47.10",
+    "biomedical_name": "Hypersomnia, unspecified",
+    "description": "A condition characterized by excessive daytime sleepiness or abnormally prolonged nighttime sleep."
+  },
+  {
+    "icd": "SM0P-165",
+    "namaste": "ACB-10",
+    "display": "dRk-sravaH (kEvalakapha)",
+    "biomedical": "H04.1",
+    "biomedical_name": "Lacrimation",
+    "description": "The excessive flow of tears, also known as watery eyes."
+  },
+  {
+    "icd": "SN3L-166",
+    "namaste": "ACB-11",
+    "display": "nAsA-sravaH (kEvalakapha)",
+    "biomedical": "R09.89",
+    "biomedical_name": "Rhinorrhea",
+    "description": "The medical term for a runny nose, characterized by a discharge of thin mucus."
+  },
+  {
+    "icd": "SN9Y-167",
+    "namaste": "ACB-12",
+    "display": "pANDutvaM (kEvalakapha)",
+    "biomedical": "R23.1",
+    "biomedical_name": "Pallor",
+    "description": "An unhealthy pale appearance of the skin."
+  },
+  {
+    "icd": "SN00-168",
+    "namaste": "ACB-13",
+    "display": "pAkshika-kATinyaM (kEvalakapha)",
+    "biomedical": "R23.4",
+    "biomedical_name": "Induration, localized",
+    "description": "An increase in the fibrous elements in tissue, causing an area to feel abnormally hard."
+  },
+  {
+    "icd": "SN4Y-169",
+    "namaste": "ACB-14",
+    "display": "pIta-varNa-mUtratvaM (kEvalakapha)",
+    "biomedical": "R82.99",
+    "biomedical_name": "Abnormal urine color",
+    "description": "Urine that has an unusual shade, such as being excessively dark yellow or brown."
+  },
+  {
+    "icd": "SN9Y-170",
+    "namaste": "ACB-15",
+    "display": "pIta-varNa-tvam (kEvalakapha)",
+    "biomedical": "R23.8",
+    "biomedical_name": "Xanthoderma",
+    "description": "Yellow discoloration of the skin."
+  },
+  {
+    "icd": "SM4P-171",
+    "namaste": "ACB-16",
+    "display": "pIta-varNadRuShTih (kEvalakapha)",
+    "biomedical": "H53.03",
+    "biomedical_name": "Xanthopsia",
+    "description": "A visual condition where all objects appear tinged with yellow."
+  },
+  {
+    "icd": "SN5Y-172",
+    "namaste": "ACB-17",
+    "display": "pRtanaM (kEvalakapha)",
+    "biomedical": "L02.91",
+    "biomedical_name": "Abscess of skin, unspecified",
+    "description": "A collection of pus that has built up within the tissue of the skin."
+  },
+  {
+    "icd": "SM3Y-173",
+    "namaste": "ACB-18",
+    "display": "mala-gaNDaH (kEvalakapha)",
+    "biomedical": "K59.00",
+    "biomedical_name": "Constipation",
+    "description": "Infrequent bowel movements or difficulty passing stool."
+  },
+  {
+    "icd": "SF2Y-174",
+    "namaste": "ACB-19",
+    "display": "madaH (kEvalakapha)",
+    "biomedical": "G47.10",
+    "biomedical_name": "Hypersomnia, unspecified",
+    "description": "A condition characterized by excessive daytime sleepiness or abnormally prolonged nighttime sleep."
+  },
+  {
+    "icd": "SP5P-175",
+    "namaste": "ACB-20",
+    "display": "mRduvRttitvaM (kEvalakapha)",
+    "biomedical": "M62.81",
+    "biomedical_name": "Muscle weakness",
+    "description": "Lack of muscle strength, often requiring increased effort to perform simple tasks."
+  },
+  {
+    "icd": "SN9Y-176",
+    "namaste": "ACB-21",
+    "display": "rAjI (kEvalakapha)",
+    "biomedical": "L90.8",
+    "biomedical_name": "Striae distensae",
+    "description": "Narrow streaks or lines on the skin, often called stretch marks, usually due to rapid growth or weight changes."
+  },
+  {
+    "icd": "SQ1P-177",
+    "namaste": "ACB-22",
+    "display": "rOma-harShaNam (kEvalakapha)",
+    "biomedical": "R20.8",
+    "biomedical_name": "Piloerection",
+    "description": "The involuntary erection of hairs on the skin, often called goosebumps."
+  },
+  {
+    "icd": "SQ00-178",
+    "namaste": "ACB-23",
+    "display": "lOlyaM (kEvalakapha)",
+    "biomedical": "R63.5",
+    "biomedical_name": "Appetite disorder",
+    "description": "A general term for conditions involving abnormal eating habits, such as overeating or lack of hunger."
+  },
+  {
+    "icd": "SN8Y-179",
+    "namaste": "ACB-24",
+    "display": "SukraSNataH (kEvalakapha)",
+    "biomedical": "N46.9",
+    "biomedical_name": "Male infertility",
+    "description": "The inability of a male to cause pregnancy after a year or more of unprotected intercourse."
+  },
+  {
+    "icd": "SR3P-180",
+    "namaste": "ACB-25",
+    "display": "SvaSaH (kEvalakapha)",
+    "biomedical": "J45.909",
+    "biomedical_name": "Bronchial Asthma",
+    "description": "A condition in which airways narrow and swell and produce extra mucus, making breathing difficult."
+  },
+  {
+    "icd": "SQ1P-181",
+    "namaste": "ACB-26",
+    "display": "harShaNam (kEvalakapha)",
+    "biomedical": "R20.8",
+    "biomedical_name": "Piloerection",
+    "description": "The involuntary erection of hairs on the skin, often called goosebumps."
+  },
+  {
+    "icd": "SQ00-182",
+    "namaste": "ACB-27",
+    "display": "hRdaya-pratataM (kEvalakapha)",
+    "biomedical": "R07.89",
+    "biomedical_name": "Chest pain",
+    "description": "Discomfort or pain felt anywhere in the chest area."
+  },
+  {
+    "icd": "SR3P-183",
+    "namaste": "ACB-28",
+    "display": "SvaSa-sa~gkaTaM (kEvalakapha)",
+    "biomedical": "J45.909",
+    "biomedical_name": "Bronchial Asthma",
+    "description": "A condition in which airways narrow and swell and produce extra mucus, making breathing difficult."
+  },
+  {
+    "icd": "SP8X-272",
+    "namaste": "ADB-1",
+    "display": "Aksipanam (pittakapha)",
+    "biomedical": "R56.9",
+    "biomedical_name": "Seizure/Convulsion",
+    "description": "A sudden, uncontrolled electrical disturbance in the brain, leading to changes in behavior or consciousness."
+  },
+  {
+    "icd": "SF6L-273",
+    "namaste": "ADB-2",
+    "display": "atinidrA (pittakapha)",
+    "biomedical": "G47.10",
+    "biomedical_name": "Hypersomnia, unspecified",
+    "description": "A condition characterized by excessive daytime sleepiness or abnormally prolonged nighttime sleep."
+  },
+  {
+    "icd": "SP9Y-274",
+    "namaste": "ADB-3",
+    "display": "a~ggamardaH (pittakapha)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SR4L-275",
+    "namaste": "ADB-4",
+    "display": "A~ggadravatvaM (pittakapha)",
+    "biomedical": "R60.9",
+    "biomedical_name": "Edema",
+    "description": "Swelling caused by excess fluid trapped in the body's tissues."
+  },
+  {
+    "icd": "SM1P-276",
+    "namaste": "ADB-5",
+    "display": "arUciH (pittakapha)",
+    "biomedical": "R63.0",
+    "biomedical_name": "Anorexia",
+    "description": "A loss of appetite for food."
+  },
+  {
+    "icd": "SN9Y-277",
+    "namaste": "ADB-6",
+    "display": "dAhaH (pittakapha)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Burning sensation",
+    "description": "A feeling of heat or stinging, often on the skin or mucous membranes."
+  },
+  {
+    "icd": "SF6L-278",
+    "namaste": "ADB-7",
+    "display": "dIrghanidrA (pittakapha)",
+    "biomedical": "G47.10",
+    "biomedical_name": "Hypersomnia, unspecified",
+    "description": "A condition characterized by excessive daytime sleepiness or abnormally prolonged nighttime sleep."
+  },
+  {
+    "icd": "SM0P-279",
+    "namaste": "ADB-8",
+    "display": "dRk-klEdaH (pittakapha)",
+    "biomedical": "H04.1",
+    "biomedical_name": "Lacrimation",
+    "description": "The excessive flow of tears, also known as watery eyes."
+  },
+  {
+    "icd": "SN9Y-280",
+    "namaste": "ADB-9",
+    "display": "pANDutvaM (pittakapha)",
+    "biomedical": "R23.1",
+    "biomedical_name": "Pallor",
+    "description": "An unhealthy pale appearance of the skin."
+  },
+  {
+    "icd": "SN9Y-281",
+    "namaste": "ADB-10",
+    "display": "pIta-varNa-tvam (pittakapha)",
+    "biomedical": "R17",
+    "biomedical_name": "Jaundice, unspecified",
+    "description": "A condition in which the skin and whites of the eyes turn yellow due to excess bilirubin."
+  },
+  {
+    "icd": "SQ1P-282",
+    "namaste": "ADB-11",
+    "display": "BramaH (pittakapha)",
+    "biomedical": "R42",
+    "biomedical_name": "Vertigo",
+    "description": "A sensation of whirling and loss of balance, often associated with inner ear problems."
+  },
+  {
+    "icd": "SF2Y-283",
+    "namaste": "ADB-12",
+    "display": "mUrChA (pittakapha)",
+    "biomedical": "R55",
+    "biomedical_name": "Syncope and collapse",
+    "description": "Temporary loss of consciousness due to a sudden drop in blood pressure, also known as fainting."
+  },
+  {
+    "icd": "SM1P-284",
+    "namaste": "ADB-13",
+    "display": "muKapAkaH (pittakapha)",
+    "biomedical": "K12.0",
+    "biomedical_name": "Recurrent oral aphthae (Canker sore)",
+    "description": "Small, painful sores that develop on the soft tissues inside the mouth."
+  },
+  {
+    "icd": "SM0P-285",
+    "namaste": "ADB-14",
+    "display": "muKa-durgandhatvaM (pittakapha)",
+    "biomedical": "R19.6",
+    "biomedical_name": "Halitosis",
+    "description": "A condition characterized by an unpleasant odor emanating from the mouth, known as bad breath."
+  },
+  {
+    "icd": "SM0P-286",
+    "namaste": "ADB-15",
+    "display": "muKaSUnyaM (pittakapha)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Oral paresthesia",
+    "description": "An abnormal sensation in the mouth, such as tingling, prickling, or numbness."
+  },
+  {
+    "icd": "SP5P-287",
+    "namaste": "ADB-16",
+    "display": "mRduvRttitvaM (pittakapha)",
+    "biomedical": "M62.81",
+    "biomedical_name": "Muscle weakness",
+    "description": "Lack of muscle strength, often requiring increased effort to perform simple tasks."
+  },
+  {
+    "icd": "SF6L-288",
+    "namaste": "ADB-17",
+    "display": "rAtryanidrA (pittakapha)",
+    "biomedical": "G47.00",
+    "biomedical_name": "Insomnia, unspecified",
+    "description": "A common sleep disorder that makes it hard to fall asleep, stay asleep, or get good quality sleep."
+  },
+  {
+    "icd": "SQ00-289",
+    "namaste": "ADB-18",
+    "display": "lOlyaM (pittakapha)",
+    "biomedical": "R63.5",
+    "biomedical_name": "Appetite disorder",
+    "description": "A general term for conditions involving abnormal eating habits, such as overeating or lack of hunger."
+  },
+  {
+    "icd": "SP9Y-290",
+    "namaste": "ADB-19",
+    "display": "SramaH (pittakapha)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Fatigue",
+    "description": "Extreme tiredness or exhaustion that doesn't improve with rest."
+  },
+  {
+    "icd": "SM0P-291",
+    "namaste": "ADB-20",
+    "display": "sRkkA (pittakapha)",
+    "biomedical": "K13.0",
+    "biomedical_name": "Angular stomatitis",
+    "description": "Inflammation and cracking at one or both corners of the mouth."
+  },
+  {
+    "icd": "SN5Y-292",
+    "namaste": "ADB-21",
+    "display": "svedaSruTiH (pittakapha)",
+    "biomedical": "L74.5",
+    "biomedical_name": "Hyperhidrosis, localized",
+    "description": "Excessive or abnormal sweating that is confined to a specific part of the body."
+  },
+  {
+    "icd": "SR12-293",
+    "namaste": "ADB-22",
+    "display": "hRdaya-dAhaH (pittakapha)",
+    "biomedical": "R12",
+    "biomedical_name": "Heartburn",
+    "description": "A burning sensation in the chest or throat, typically caused by stomach acid regurgitation."
+  },
+  {
+    "icd": "SR4L-294",
+    "namaste": "AD-1",
+    "display": "A~ggadravatvaM (vAtapittakapha)",
+    "biomedical": "R60.9",
+    "biomedical_name": "Edema",
+    "description": "Swelling caused by excess fluid trapped in the body's tissues."
+  },
+  {
+    "icd": "SP9Y-295",
+    "namaste": "AD-2",
+    "display": "a~ggamardaH (vAtapittakapha)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SP8X-296",
+    "namaste": "AD-3",
+    "display": "AksipanaM (vAtapittakapha)",
+    "biomedical": "R56.9",
+    "biomedical_name": "Seizure/Convulsion",
+    "description": "A sudden, uncontrolled electrical disturbance in the brain, leading to changes in behavior or consciousness."
+  },
+  {
+    "icd": "SM1P-297",
+    "namaste": "AD-4",
+    "display": "arUciH (vAtapittakapha)",
+    "biomedical": "R63.0",
+    "biomedical_name": "Anorexia",
+    "description": "A loss of appetite for food."
+  },
+  {
+    "icd": "SF6L-298",
+    "namaste": "AD-5",
+    "display": "anidrA (vAtapittakapha)",
+    "biomedical": "G47.00",
+    "biomedical_name": "Insomnia, unspecified",
+    "description": "A common sleep disorder that makes it hard to fall asleep, stay asleep, or get good quality sleep."
+  },
+  {
+    "icd": "SF6L-299",
+    "namaste": "AD-6",
+    "display": "AtinidrA (vAtapittakapha)",
+    "biomedical": "G47.10",
+    "biomedical_name": "Hypersomnia, unspecified",
+    "description": "A condition characterized by excessive daytime sleepiness or abnormally prolonged nighttime sleep."
+  },
+  {
+    "icd": "R43-300",
+    "namaste": "AD-7",
+    "display": "Asya-vairasyaM (vAtapittakapha)",
+    "biomedical": "R43.8",
+    "biomedical_name": "Dysgeusia",
+    "description": "A distortion of the sense of taste, causing unpleasant or altered flavor perceptions."
+  },
+  {
+    "icd": "SM3Y-301",
+    "namaste": "AD-8",
+    "display": "ugra-gandha-mala-pravRttiH (vAtapittakapha)",
+    "biomedical": "R19.5",
+    "biomedical_name": "Other fecal abnormalities (Foul-smelling stool)",
+    "description": "Stool that has a particularly strong and unpleasant odor."
+  },
+  {
+    "icd": "SN9P-302",
+    "namaste": "AD-9",
+    "display": "gauravaM (vAtapittakapha)",
+    "biomedical": "R53.83",
+    "biomedical_name": "Lethargy/Sluggishness",
+    "description": "A state of sluggishness, apathy, and extreme tiredness."
+  },
+  {
+    "icd": "SP9Y-303",
+    "namaste": "AD-10",
+    "display": "glAniH (vAtapittakapha)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SF6L-304",
+    "namaste": "AD-11",
+    "display": "dIrghanidrA (vAtapittakapha)",
+    "biomedical": "G47.10",
+    "biomedical_name": "Hypersomnia, unspecified",
+    "description": "A condition characterized by excessive daytime sleepiness or abnormally prolonged nighttime sleep."
+  },
+  {
+    "icd": "SQ00-305",
+    "namaste": "AD-12",
+    "display": "dRuMdRuM (vAtapittakapha)",
+    "biomedical": "H93.19",
+    "biomedical_name": "Tinnitus, unspecified",
+    "description": "The perception of noise or ringing in the ears when no external sound is present."
+  },
+  {
+    "icd": "SN9Y-306",
+    "namaste": "AD-13",
+    "display": "dAhaH (vAtapittakapha)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Burning sensation",
+    "description": "A feeling of heat or stinging, often on the skin or mucous membranes."
+  },
+  {
+    "icd": "SN9Y-307",
+    "namaste": "AD-14",
+    "display": "pANDutvaM (vAtapittakapha)",
+    "biomedical": "R23.1",
+    "biomedical_name": "Pallor",
+    "description": "An unhealthy pale appearance of the skin."
+  },
+  {
+    "icd": "SQ1P-308",
+    "namaste": "AD-15",
+    "display": "BramaH (vAtapittakapha)",
+    "biomedical": "R42",
+    "biomedical_name": "Vertigo",
+    "description": "A sensation of whirling and loss of balance, often associated with inner ear problems."
+  },
+  {
+    "icd": "SF2Y-309",
+    "namaste": "AD-16",
+    "display": "mUrChA (vAtapittakapha)",
+    "biomedical": "R55",
+    "biomedical_name": "Syncope and collapse",
+    "description": "Temporary loss of consciousness due to a sudden drop in blood pressure, also known as fainting."
+  },
+  {
+    "icd": "SM0P-310",
+    "namaste": "AD-17",
+    "display": "muKa-durgandhatvaM (vAtapittakapha)",
+    "biomedical": "R19.6",
+    "biomedical_name": "Halitosis",
+    "description": "A condition characterized by an unpleasant odor emanating from the mouth, known as bad breath."
+  },
+  {
+    "icd": "SM0P-311",
+    "namaste": "AD-18",
+    "display": "muKaSUnyaM (vAtapittakapha)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Oral paresthesia",
+    "description": "An abnormal sensation in the mouth, such as tingling, prickling, or numbness."
+  },
+  {
+    "icd": "SP5P-312",
+    "namaste": "AD-19",
+    "display": "mRduvRttitvaM (vAtapittakapha)",
+    "biomedical": "M62.81",
+    "biomedical_name": "Muscle weakness",
+    "description": "Lack of muscle strength, often requiring increased effort to perform simple tasks."
+  },
+  {
+    "icd": "SF6L-313",
+    "namaste": "AD-20",
+    "display": "rAtryanidrA (vAtapittakapha)",
+    "biomedical": "G47.00",
+    "biomedical_name": "Insomnia, unspecified",
+    "description": "A common sleep disorder that makes it hard to fall asleep, stay asleep, or get good quality sleep."
+  },
+  {
+    "icd": "SQ00-314",
+    "namaste": "AD-21",
+    "display": "lOlyaM (vAtapittakapha)",
+    "biomedical": "R63.5",
+    "biomedical_name": "Appetite disorder",
+    "description": "A general term for conditions involving abnormal eating habits, such as overeating or lack of hunger."
+  },
+  {
+    "icd": "SQ1P-315",
+    "namaste": "AD-22",
+    "display": "lomaharShaNaM (vAtapittakapha)",
+    "biomedical": "R20.8",
+    "biomedical_name": "Piloerection",
+    "description": "The involuntary erection of hairs on the skin, often called goosebumps."
+  },
+  {
+    "icd": "SP9Y-316",
+    "namaste": "AD-23",
+    "display": "SramaH (vAtapittakapha)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Fatigue",
+    "description": "Extreme tiredness or exhaustion that doesn't improve with rest."
+  },
+  {
+    "icd": "SK3Y-317",
+    "namaste": "AD-24",
+    "display": "SirASTuMBhatvam (vAtapittakapha)",
+    "biomedical": "G44.229",
+    "biomedical_name": "Tension-type headache",
+    "description": "A common headache characterized by a dull, aching pain and a feeling of tightness or pressure around the head."
+  },
+  {
+    "icd": "SR12-318",
+    "namaste": "AD-25",
+    "display": "hRdaya-dAhaH (vAtapittakapha)",
+    "biomedical": "R12",
+    "biomedical_name": "Heartburn",
+    "description": "A burning sensation in the chest or throat, typically caused by stomach acid regurgitation."
+  },
+  {
+    "icd": "SQ00-319",
+    "namaste": "AD-26",
+    "display": "hRdaya-pratataM (vAtapittakapha)",
+    "biomedical": "R07.89",
+    "biomedical_name": "Chest pain",
+    "description": "Discomfort or pain felt anywhere in the chest area."
+  },
+  {
+    "icd": "SF6L-320",
+    "namaste": "AAD-2.1",
+    "display": "AtinidrA (vAtapitta-med)",
+    "biomedical": "G47.10",
+    "biomedical_name": "Hypersomnia, unspecified",
+    "description": "A condition characterized by excessive daytime sleepiness or abnormally prolonged nighttime sleep."
+  },
+  {
+    "icd": "SR4L-321",
+    "namaste": "AAD-2.2",
+    "display": "A~ggadravatvaM (vAtapitta-med)",
+    "biomedical": "R60.9",
+    "biomedical_name": "Edema",
+    "description": "Swelling caused by excess fluid trapped in the body's tissues."
+  },
+  {
+    "icd": "SN9Y-322",
+    "namaste": "AAD-2.3",
+    "display": "dAhaH (vAtapitta-med)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Burning sensation",
+    "description": "A feeling of heat or stinging, often on the skin or mucous membranes."
+  },
+  {
+    "icd": "SP9Y-323",
+    "namaste": "AAD-2.4",
+    "display": "glAniH (vAtapitta-med)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SF2Y-324",
+    "namaste": "AAD-2.5",
+    "display": "mUrChA (vAtapitta-med)",
+    "biomedical": "R55",
+    "biomedical_name": "Syncope and collapse",
+    "description": "Temporary loss of consciousness due to a sudden drop in blood pressure, also known as fainting."
+  },
+  {
+    "icd": "SP9Y-325",
+    "namaste": "AAD-2.6",
+    "display": "SramaH (vAtapitta-med)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Fatigue",
+    "description": "Extreme tiredness or exhaustion that doesn't improve with rest."
+  },
+  {
+    "icd": "SR4L-326",
+    "namaste": "AAD-3.1",
+    "display": "A~ggadravatvaM (vAtakapha-med)",
+    "biomedical": "R60.9",
+    "biomedical_name": "Edema",
+    "description": "Swelling caused by excess fluid trapped in the body's tissues."
+  },
+  {
+    "icd": "SP9Y-327",
+    "namaste": "AAD-3.2",
+    "display": "glAniH (vAtakapha-med)",
+    "biomedical": "R53.83",
+    "biomedical_name": "Lethargy",
+    "description": "A state of sluggishness, apathy, and extreme tiredness."
+  },
+  {
+    "icd": "SN9Y-328",
+    "namaste": "AAD-3.4",
+    "display": "dAhaH (vAtakapha-med)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Burning sensation",
+    "description": "A feeling of heat or stinging, often on the skin or mucous membranes."
+  },
+  {
+    "icd": "SF2Y-329",
+    "namaste": "AAD-3.5",
+    "display": "mUrChA (vAtakapha-med)",
+    "biomedical": "R55",
+    "biomedical_name": "Syncope and collapse",
+    "description": "Temporary loss of consciousness due to a sudden drop in blood pressure, also known as fainting."
+  },
+  {
+    "icd": "SR4L-330",
+    "namaste": "AAD-4.1",
+    "display": "A~ggadravatvaM (pittakapha-med)",
+    "biomedical": "R60.9",
+    "biomedical_name": "Edema",
+    "description": "Swelling caused by excess fluid trapped in the body's tissues."
+  },
+  {
+    "icd": "SP9Y-331",
+    "namaste": "AAD-4.2",
+    "display": "glAniH (pittakapha-med)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SN9Y-332",
+    "namaste": "AAD-4.3",
+    "display": "dAhaH (pittakapha-med)",
+    "biomedical": "R20.2",
+    "biomedical_name": "Burning sensation",
+    "description": "A feeling of heat or stinging, often on the skin or mucous membranes."
+  },
+  {
+    "icd": "SF2Y-333",
+    "namaste": "AAD-4.5",
+    "display": "mUrChA (pittakapha-med)",
+    "biomedical": "R55",
+    "biomedical_name": "Syncope and collapse",
+    "description": "Temporary loss of consciousness due to a sudden drop in blood pressure, also known as fainting."
+  },
+  {
+    "icd": "SP9Y-334",
+    "namaste": "AAD-5.2",
+    "display": "glAniH (vAtapitta-majja)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SP9Y-335",
+    "namaste": "AAD-6.2",
+    "display": "glAniH (vAtakapha-majja)",
+    "biomedical": "R53.83",
+    "biomedical_name": "Lethargy",
+    "description": "A state of sluggishness, apathy, and extreme tiredness."
+  },
+  {
+    "icd": "SP9Y-336",
+    "namaste": "AAD-7.2",
+    "display": "glAniH (pittakapha-majja)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SP9Y-337",
+    "namaste": "AAD-8.2",
+    "display": "glAniH (vAtapittakapha-majja)",
+    "biomedical": "R53.81",
+    "biomedical_name": "Malaise and fatigue",
+    "description": "A feeling of general discomfort, illness, or uneasiness often accompanied by tiredness."
+  },
+  {
+    "icd": "SN8Y-338",
+    "namaste": "SN8Y",
+    "display": "SukraSNataH (vAtapittakapha)",
+    "biomedical": "N46.9",
+    "biomedical_name": "Male infertility",
+    "description": "The inability of a male to cause pregnancy after a year or more of unprotected intercourse."
+  }
+]

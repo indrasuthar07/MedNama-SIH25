@@ -1,55 +1,57 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import {
-  Card, CardContent, CardHeader, CardTitle, CardDescription
-} from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import {
+  Card, CardContent,
+  CardDescription,
+  CardHeader, CardTitle
+} from "@/components/ui/card"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Search, Plus, Stethoscope, Save, Eye, NotebookPen } from "lucide-react"
+import { Eye, NotebookPen, Plus, Save, Search, Stethoscope } from "lucide-react"
+import { useEffect, useState } from "react"
 
-const dualMap = {
-  "1A00": { code: "NAM001", display: "Cholera (NAMASTE)" },
-  "1A01": { code: "NAM002", display: "Typhoid (NAMASTE)" }, 
-  "1A02": { code: "NAM003", display: "Malaria (NAMASTE)" },
-  "8E64.Z": { code: "NAM004", display: "Anxiety Disorder (NAMASTE)" },
-  "5B50": { code: "NAM005", display: "Diabetes Mellitus (NAMASTE)" },
-  "BA40": { code: "NAM006", display: "Hypertension (NAMASTE)" },
-  "CA23": { code: "NAM007", display: "Asthma (NAMASTE)" },
-  "DA11": { code: "NAM008", display: "Migraine (NAMASTE)" },
-  "EA90": { code: "NAM009", display: "Tuberculosis (NAMASTE)" },
-  "FA33": { code: "NAM010", display: "Pneumonia (NAMASTE)" },
-  "GA12": { code: "NAM011", display: "Chickenpox (NAMASTE)" },  
-  "HA45": { code: "NAM012", display: "Measles (NAMASTE)" },
-  "IA27": { code: "NAM013", display: "Hepatitis B (NAMASTE)" },
-  "JA99": { code: "NAM014", display: "COVID-19 (NAMASTE)" },
-  "KA10": { code: "NAM015", display: "Influenza (NAMASTE)" },
-  "LA77": { code: "NAM016", display: "Dengue Fever (NAMASTE)" },
-  "MA32": { code: "NAM017", display: "Leprosy (NAMASTE)" },
-  "NA55": { code: "NAM018", display: "Rabies (NAMASTE)" },
-  "OA88": { code: "NAM019", display: "Tetanus (NAMASTE)" },
-  "PA11": { code: "NAM020", display: "Scarlet Fever (NAMASTE)" },
-  "QA66": { code: "NAM021", display: "Mumps (NAMASTE)" },
-  "RA42": { code: "NAM022", display: "Whooping Cough (NAMASTE)" },
-  "SA13": { code: "NAM023", display: "Ebola Virus Disease (NAMASTE)" },
-  "TA09": { code: "NAM024", display: "Zika Virus Infection (NAMASTE)" },
-  "UA34": { code: "NAM025", display: "Chikungunya (NAMASTE)" },
-  "VA21": { code: "NAM026", display: "Yellow Fever (NAMASTE)" },
-  "WA78": { code: "NAM027", display: "Lassa Fever (NAMASTE)" },
-  "XA56": { code: "NAM028", display: "Marburg Virus Disease (NAMASTE)" },
-  "YA89": { code: "NAM029", display: "Nipah Virus Infection (NAMASTE)" },
-  "ZA90": { code: "NAM030", display: "Hantavirus Pulmonary Syndrome (NAMASTE)" },
-  "SR12": { code: "AAA-2", display: "vatavriddh (NAMASTE)"},
-  "SQ00": { code: "AAB-1", display: "atipralapa (NAMASTE)"},
+// const dualMap = {
+//   "1A00": { code: "NAM001", display: "Cholera (NAMASTE)" },
+//   "1A01": { code: "NAM002", display: "Typhoid (NAMASTE)" }, 
+//   "1A02": { code: "NAM003", display: "Malaria (NAMASTE)" },
+//   "8E64.Z": { code: "NAM004", display: "Anxiety Disorder (NAMASTE)" },
+//   "5B50": { code: "NAM005", display: "Diabetes Mellitus (NAMASTE)" },
+//   "BA40": { code: "NAM006", display: "Hypertension (NAMASTE)" },
+//   "CA23": { code: "NAM007", display: "Asthma (NAMASTE)" },
+//   "DA11": { code: "NAM008", display: "Migraine (NAMASTE)" },
+//   "EA90": { code: "NAM009", display: "Tuberculosis (NAMASTE)" },
+//   "FA33": { code: "NAM010", display: "Pneumonia (NAMASTE)" },
+//   "GA12": { code: "NAM011", display: "Chickenpox (NAMASTE)" },  
+//   "HA45": { code: "NAM012", display: "Measles (NAMASTE)" },
+//   "IA27": { code: "NAM013", display: "Hepatitis B (NAMASTE)" },
+//   "JA99": { code: "NAM014", display: "COVID-19 (NAMASTE)" },
+//   "KA10": { code: "NAM015", display: "Influenza (NAMASTE)" },
+//   "LA77": { code: "NAM016", display: "Dengue Fever (NAMASTE)" },
+//   "MA32": { code: "NAM017", display: "Leprosy (NAMASTE)" },
+//   "NA55": { code: "NAM018", display: "Rabies (NAMASTE)" },
+//   "OA88": { code: "NAM019", display: "Tetanus (NAMASTE)" },
+//   "PA11": { code: "NAM020", display: "Scarlet Fever (NAMASTE)" },
+//   "QA66": { code: "NAM021", display: "Mumps (NAMASTE)" },
+//   "RA42": { code: "NAM022", display: "Whooping Cough (NAMASTE)" },
+//   "SA13": { code: "NAM023", display: "Ebola Virus Disease (NAMASTE)" },
+//   "TA09": { code: "NAM024", display: "Zika Virus Infection (NAMASTE)" },
+//   "UA34": { code: "NAM025", display: "Chikungunya (NAMASTE)" },
+//   "VA21": { code: "NAM026", display: "Yellow Fever (NAMASTE)" },
+//   "WA78": { code: "NAM027", display: "Lassa Fever (NAMASTE)" },
+//   "XA56": { code: "NAM028", display: "Marburg Virus Disease (NAMASTE)" },
+//   "YA89": { code: "NAM029", display: "Nipah Virus Infection (NAMASTE)" },
+//   "ZA90": { code: "NAM030", display: "Hantavirus Pulmonary Syndrome (NAMASTE)" },
+//   "SR12": { code: "AAA-2", display: "vatavriddh (NAMASTE)"},
+//   "SQ00": { code: "AAB-1", display: "atipralapa (NAMASTE)"},
 
-}
-const fetchDualCodes = async (code) => {
-  return dualMap[code] ? [dualMap[code]] : []
-}
+// }
+
+
+
 
 const fetchTerminologies = async (query) => {
   if (!query) return []
@@ -70,21 +72,45 @@ export default function DiagnosisEntry() {
   const [notes, setNotes] = useState("")
   const [fhirPreview, setFhirPreview] = useState(null)
 
-  useEffect(() => {
-    const handler = setTimeout(async () => {
-      if (searchTerm) {
-        const terms = await fetchTerminologies(searchTerm)
-        setResults(terms)
-      } else {
-        setResults([])
+ useEffect(() => {
+  const controller = new AbortController()
+  const handler = setTimeout(async () => {
+    if (searchTerm) {
+      try {
+        const res = await fetch(
+          `http://localhost:5000/api/icd-search?q=${encodeURIComponent(searchTerm)}`,
+          { signal: controller.signal }
+        )
+        
+        if (!res.ok) return
+        const terms = await res.json()
+
+        // ✅ Only set results if query is still the same
+        setResults(
+          terms.filter((t) =>
+            t.display?.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+        )
+      } catch (err) {
+        if (err.name !== "AbortError") {
+          console.error("Error fetching:", err)
+        }
       }
-    }, 400)
-    return () => clearTimeout(handler)
-  }, [searchTerm])
+    } else {
+      setResults([])
+    }
+  }, 400)
+
+  return () => {
+    clearTimeout(handler)
+    controller.abort() // cancel old request when typing continues
+  }
+}, [searchTerm])
+
 
   const addDiagn = async (term) => {
     if (!selected.find(d => d.code === term.code)) {
-      const dual = await fetchDualCodes(term.code)
+      const dual = await fetchTerminologies(term.code)
       setSelected([...selected, { ...term, dual }])
     }
   }
@@ -114,7 +140,9 @@ export default function DiagnosisEntry() {
       }
     }))
   })
-
+const fetchDualCodes = async (display) => {
+  return searchTerm[display] ? [searchTerm[display]] : []
+}
   const handlePreview = () => setFhirPreview(buildFHIR())
 
   const handleSave = async () => {
@@ -180,23 +208,40 @@ export default function DiagnosisEntry() {
             </p>
           )}
 
-          {results.map((term) => (
+          {results.sort((a, b) => {
+    const aDisplay = (a.display || "").toLowerCase();
+    const bDisplay = (b.display || "").toLowerCase();
+    const q = searchTerm.toLowerCase();
+
+    // Prioritize items starting with the search query
+    const aStarts = aDisplay.startsWith(q);
+    const bStarts = bDisplay.startsWith(q);
+
+    if (aStarts && !bStarts) return -1;
+    if (!aStarts && bStarts) return 1;
+
+    // Otherwise sort alphabetically by lowercase display
+    return aDisplay.localeCompare(bDisplay);
+  }).map((term) => (
             <div
-              key={term.code}
+              key={term.display}
               className="flex justify-between items-center bg-white rounded-xl border border-gray-100 p-3"
             >
-              <div>
-                <p className="text-gray-800 font-semibold text-sm">
-                  {term.display}
-                </p>
-                <div className="flex gap-2 mt-1 text-xs">
-                  <Badge className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">
-                    ICD: {term.code}
-                  </Badge>
-                  <Badge className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
-                    NAMASTE: {term.namaste}
-                  </Badge>
-                </div>
+             <div>
+        <p className="text-gray-800 font-semibold text-sm">
+          {term.display}
+        </p>
+        <div className="flex gap-2 mt-1 text-xs">
+          <Badge className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">
+            ICD: {term.icd}
+          </Badge>
+          <Badge className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
+            NAMASTE: {term.namaste}
+          </Badge>
+          <Badge className="bg-red-100 text-red-700 px-2 py-0.5 rounded-full">
+            Biomedical: {term.biomedical}
+          </Badge>
+        </div>
               </div>
 
               <Button
@@ -226,17 +271,33 @@ export default function DiagnosisEntry() {
           {selected.length > 0 ? (
             selected.map((d) => (
               <div
-                key={d.code}
+                key={d.icd}
                 className="border border-gray-100 bg-gray-50 rounded-lg p-3 mb-2 flex justify-between items-center"
               >
-                <div>
+                <div >
                   <p className="font-semibold text-gray-800 text-sm">
                     {d.display}
                   </p>
-                  <p className="text-xs text-gray-500">ICD: {d.code}</p>
+                  <div className="flex">
+                      <p className="text-xs text-gray-500">
+                          <span className="font-bold text-blue-700">ICD 11 TM2:</span> {d.icd}
+                        </p>
+                        <p className="text-xs text-gray-500 ml-5">
+                          <span className="font-bold text-green-700">NAMASTE:</span> {d.namaste}
+                        </p>
+                        <p className="text-xs text-gray-500 ml-5">
+                          <span className="font-bold text-red-700">BIOMEDICAL:</span> {d.biomedical}
+                        </p>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-2">
+                        <span className="font-bold text-black">BIOMEDICAL NAME:</span> {d.biomedical_name}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-2">
+                        <span className="font-bold text-black">DESCRIPTION:</span> {d.description}
+                      </p> 
                   {d.dual?.length > 0 && (
                     <p className="text-xs text-green-600 mt-1">
-                      Dual-coded: {d.dual[0].display} ({d.dual[0].code})
+                      Dual-coded: {d.dual[0].display} ({d.dual[0].icd})
                     </p>
                   )}
                 </div>
