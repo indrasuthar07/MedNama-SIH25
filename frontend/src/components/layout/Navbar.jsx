@@ -11,22 +11,29 @@ import {
   ShieldCheck,
   LogOut,
   UserCircle,
-  Code,
+  Code2Icon
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
+import { useNavigate } from "react-router-dom";
 
 const navigationItems = [
   { title: "Home", url: "/", icon: LayoutDashboard },
   { title: "Patient Search", url: "/patients", icon: Users },
   { title: "Diagnosis Search", url: "/diagnosis", icon: Stethoscope },
-   { title: "API Docs", url: "/api", icon: Code },
+   { title: "API Docs", url: "/api", icon: Code2Icon },
   { title: "Analytics", url: "/analytics", icon: BarChart3 },
  
 ]
 
 export function Navbar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Optional: clear any auth tokens or state here
+    navigate("/login"); // redirect to login page
+  };
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
   const currentPath = location.pathname
@@ -46,6 +53,7 @@ export function Navbar() {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  
   return (
     <nav className="sticky top-0 z-50 w-full border-b shadow-sm backdrop-blur">
       <div className="container flex h-16 items-center justify-between">
@@ -97,12 +105,13 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <UserCircle className="h-6 w-6 text-[#4A4A4A]" />
             <span className="text-sm font-medium text-[#0A3D62]">
-              Dr. Rajesh Kumar
+              Dr. Jhatka
             </span>
             <Button
               variant="outline"
               size="sm"
               className="ml-2 flex gap-1 border-green-700 text-green-700 hover:bg-green-500 hover:text-white"
+              onClick={handleLogout}
             >
               <LogOut className="h-4 w-4 text-green-700" /> Logout
             </Button>
@@ -149,15 +158,16 @@ export function Navbar() {
               </Badge>
               <div className="flex items-center gap-2 px-3 text-[#0A3D62]">
                 <UserCircle className="h-5 w-5" />
-                <span className="text-sm">Dr. Rajesh Kumar</span>
+                <span className="text-sm">Dr. Jhatka</span>
               </div>
-              <Button
-                variant="outline"
-                size="sm"
-                className="mx-3 flex gap-1 w-full border-[#0A3D62] text-[#0A3D62] hover:bg-[#0A3D62] hover:text-white"
-              >
-                <LogOut className="h-4 w-4" /> Logout
-              </Button>
+             <Button
+      variant="outline"
+      size="sm"
+      className="mx-3 flex gap-1 w-full border-[#0A3D62] text-[#0A3D62] hover:bg-[#0A3D62] hover:text-white"
+      onClick={handleLogout}
+    >
+      <LogOut className="h-4 w-4" /> Logout
+    </Button>
             </div>
           </div>
         </div>

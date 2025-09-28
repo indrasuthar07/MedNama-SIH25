@@ -1,268 +1,210 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+"use client";
+
+import { useEffect, useState } from "react";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  BarChart3, 
-  TrendingUp, 
-  Download, 
-  Calendar,
-  Filter,
-  PieChart,
-  Activity
-} from "lucide-react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  PieChart as RechartsPieChart,
-  Cell,
-  LineChart,
-  Line
-} from "recharts";
+import { Activity, Database, Server, Zap, Layers } from "lucide-react";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { Bar } from 'react-chartjs-2';
 
-const morbidityData = [
-  { system: "Respiratory", namaste: 145, whoAyurveda: 89, icd11: 234 },
-  { system: "Digestive", namaste: 198, whoAyurveda: 156, icd11: 187 },
-  { system: "Nervous", namaste: 87, whoAyurveda: 67, icd11: 123 },
-  { system: "Circulatory", namaste: 156, whoAyurveda: 134, icd11: 198 },
-  { system: "Musculoskeletal", namaste: 98, whoAyurveda: 76, icd11: 145 },
-];
-
-const trendData = [
-  { month: "Jan", encounters: 1247, dualCoding: 89 },
-  { month: "Feb", encounters: 1356, dualCoding: 91 },
-  { month: "Mar", encounters: 1298, dualCoding: 88 },
-  { month: "Apr", encounters: 1445, dualCoding: 93 },
-  { month: "May", encounters: 1523, dualCoding: 95 },
-  { month: "Jun", encounters: 1634, dualCoding: 97 },
-];
-
-const systemUsageData = [
-  { name: "NAMASTE", value: 35, color: "#10b981" },
-  { name: "WHO Ayurveda", value: 28, color: "#2563eb" },
-  { name: "ICD-11 TM2", value: 22, color: "#f59e0b" },
-  { name: "ICD-11 Bio", value: 15, color: "#ef4444" },
-];
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export default function Analytics() {
+  const [bundleStats, setBundleStats] = useState([]);
+  const [backendStatus, setBackendStatus] = useState("");
+  const [topDiseases, setTopDiseases] = useState([]);
+
+  const fetchBundles = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/saved-bundles");
+      const data = await res.json();
+
+      const bundles = data
+        .map((b) => {
+          const entries = b.bundle.entry || [];
+          return entries.map((e) => {
+            const codes = e.resource.code.coding;
+            const icd = codes.find((c) => c.system === "ICD-11")?.code || "-";
+            const namaste = codes.find((c) => c.system === "NAMASTE")?.code || "-";
+            const display = codes[0]?.display || "Unknown Disease";
+            return {
+              id: b._id,
+              savedAt: b.savedAt,
+              display,
+              icd,
+              namaste,
+            };
+          });
+        })
+        .flat()
+        .sort((a, b) => new Date(b.savedAt) - new Date(a.savedAt));
+
+      setBundleStats(bundles);
+
+      // Compute Top Diseases
+      const counts = {};
+      bundles.forEach((b) => {
+        counts[b.display] = (counts[b.display] || 0) + 1;
+      });
+      const top = Object.entries(counts)
+        .map(([name, count]) => ({ name, searches: count }))
+        .sort((a, b) => b.searches - a.searches)
+        .slice(0, 5);
+      setTopDiseases(top);
+
+    } catch (err) {
+      console.error("Error fetching bundles:", err);
+    }
+  };
+
+  const fetchBackendStatus = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/");
+      const text = await res.text();
+      setBackendStatus(text);
+    } catch (err) {
+      setBackendStatus("❌ Backend unreachable");
+    }
+  };
+
+  useEffect(() => {
+    fetchBundles();
+    fetchBackendStatus();
+  }, []);
+
+  const chartData = {
+    labels: topDiseases.map(d => d.name),
+    datasets: [
+      {
+        label: 'Saved Count',
+        data: topDiseases.map(d => d.searches),
+        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+        borderColor: 'rgba(16, 185, 129, 1)',
+        borderWidth: 1,
+        borderRadius: 5,
+        barThickness: 30,
+      }
+    ]
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: { display: true },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            const disease = topDiseases[context.dataIndex];
+            return `${disease.searches} saved`;
+          }
+        }
+      },
+      title: {
+        display: true,
+        text: 'Top Saved Diseases',
+        font: { size: 18, weight: 'bold' },
+        color: '#10B981',
+      }
+    },
+    scales: {
+      y: { beginAtZero: true, ticks: { stepSize: 1 } },
+      x: { ticks: { font: { size: 14 } } }
+    }
+  };
+
   return (
-    <div className="space-y-6 animate-fade-in">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Analytics Dashboard</h1>
-          <p className="text-muted-foreground">
-            Morbidity trends and terminology usage analytics
-          </p>
-        </div>
-        <div className="flex gap-2">
-          <Button variant="outline">
-            <Filter className="mr-2 h-4 w-4" />
-            Filters
-          </Button>
-          <Button variant="outline">
-            <Calendar className="mr-2 h-4 w-4" />
-            Date Range
-          </Button>
-          <Button variant="medical">
-            <Download className="mr-2 h-4 w-4" />
-            Export CSV
-          </Button>
-        </div>
+    <div className="px-6 md:px-12 py-8 space-y-8 font-sans">
+      {/* Header */}
+      <div className="flex items-center gap-4 mb-4">
+        <Activity className="w-8 h-8 text-green-700 animate-bounce" />
+        <h1 className="text-3xl font-extrabold text-green-700">
+          API Analytics Dashboard
+        </h1>
       </div>
 
-      {/* Key Metrics */}
-      <div className="grid gap-4 md:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Encounters</CardTitle>
-            <Activity className="h-4 w-4 text-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">9,503</div>
-            <p className="text-xs text-success">
-              <TrendingUp className="inline h-3 w-3 mr-1" />
-              +12% from last month
-            </p>
-          </CardContent>
-        </Card>
-        
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Dual Coding Rate</CardTitle>
-            <BarChart3 className="h-4 w-4 text-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">89.3%</div>
-            <p className="text-xs text-success">
-              <TrendingUp className="inline h-3 w-3 mr-1" />
-              +2.1% from last month
-            </p>
-          </CardContent>
-        </Card>
+      {/* Metrics */}
+      
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">System Coverage</CardTitle>
-            <PieChart className="h-4 w-4 text-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">4/4</div>
-            <p className="text-xs text-muted-foreground">All systems active</p>
-          </CardContent>
-        </Card>
+      {/* Top Saved Diseases Chart */}
+     <div className="flex flex-col md:flex-row gap-6">
+  {/* Left Cards */}
+  <div className="grid grid-cols-1 gap-4 md:w-1/3">
+    <Card className="p-4 shadow-lg border border-gray-200">
+      <CardHeader className="flex items-center gap-2">
+        <Database className="w-5 h-5 text-blue-600" />
+        <CardTitle>Total Saved Bundles</CardTitle>
+      
+        <p className="text-2xl font-bold text-gray-800">{bundleStats.length}</p>
+        <Badge className="bg-green-100 text-green-700 mt-2">Updated live</Badge>
+      </CardHeader>
+    </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Mapping Accuracy</CardTitle>
-            <Activity className="h-4 w-4 text-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">94.7%</div>
-            <p className="text-xs text-success">
-              <TrendingUp className="inline h-3 w-3 mr-1" />
-              +1.2% from last month
-            </p>
-          </CardContent>
-        </Card>
-      </div>
+    <Card className="p-4 shadow-lg border border-gray-200">
+      <CardHeader className="flex items-center gap-2">
+        <Zap className="w-5 h-5 text-purple-600" />
+        <CardTitle>Total API Usage</CardTitle>
+        <p className="text-2xl font-bold text-gray-800">
+          {bundleStats.length + topDiseases.reduce((a, c) => a + c.searches, 0)}
+        </p>
+        <Badge className="bg-purple-100 text-purple-700 mt-2">Estimated</Badge>
+     </CardHeader>
+    </Card>
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        {/* Morbidity by System */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Morbidity Trends by System</CardTitle>
-            <CardDescription>
-              Distribution of health conditions across medical systems
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={morbidityData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="system" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="namaste" fill="hsl(var(--accent))" name="NAMASTE" />
-                <Bar dataKey="whoAyurveda" fill="hsl(var(--primary))" name="WHO Ayurveda" />
-                <Bar dataKey="icd11" fill="hsl(var(--warning))" name="ICD-11" />
-              </BarChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
+    <Card className="p-4 shadow-lg border border-gray-200">
+      <CardHeader className="flex items-center gap-2">
+        <Server className="w-5 h-5 text-red-600" />
+        <CardTitle>Backend Status</CardTitle>
+    
+        <p className={`font-semibold ${backendStatus.includes("❌") ? "text-red-600" : "text-green-700"}`}>
+          {backendStatus}
+        </p>
+      </CardHeader>
+    </Card>
 
-        {/* System Usage Distribution */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Terminology System Usage</CardTitle>
-            <CardDescription>
-              Distribution of diagnosis entries by terminology system
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
-              <RechartsPieChart>
-                <RechartsPieChart
-                  data={systemUsageData}
-                  cx="50%"
-                  cy="50%"
-                  outerRadius={80}
-                  dataKey="value"
-                >
-                  {systemUsageData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </RechartsPieChart>
-                <Tooltip />
-              </RechartsPieChart>
-            </ResponsiveContainer>
-            <div className="flex flex-wrap gap-2 mt-4">
-              {systemUsageData.map((item) => (
-                <div key={item.name} className="flex items-center gap-2">
-                  <div 
-                    className="w-3 h-3 rounded-full" 
-                    style={{ backgroundColor: item.color }}
-                  />
-                  <span className="text-sm">{item.name}: {item.value}%</span>
+    <Card className="p-4 shadow-lg text-center border border-gray-200">
+      <CardHeader className="flex items-center gap-2">
+        <Layers className="w-5 h-5 text-teal-600" />
+        <CardTitle>Unique Diseases</CardTitle>
+     
+        <p className="text-2xl font-bold text-gray-800">{new Set(bundleStats.map(b => b.display)).size}</p>
+        <Badge className="bg-teal-100 text-teal-700 mt-2">Distinct entries</Badge>
+       </CardHeader>
+    </Card>
+  </div>
+
+  {/* Right Chart */}
+  <div className="md:w-2/3">
+    <Card className="p-2 shadow-lg border border-gray-200 h-full">
+      <CardContent>
+        <Bar data={chartData} options={chartOptions} />
+      </CardContent>
+    </Card>
+  </div>
+</div>
+
+
+      {/* Recent Saved Bundles */}
+      <Card className="p-4 shadow-lg border border-gray-200 hover:shadow-2xl transition">
+        <CardHeader>
+          <CardTitle className="text-green-700">Recent Saved Diseases</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2 max-h-80 overflow-y-auto">
+          {bundleStats.length === 0 && <p>No bundles saved yet.</p>}
+          {bundleStats.map((b) => (
+            <div
+              key={b.id + b.icd}
+              className="p-2 bg-gray-50 rounded shadow-sm flex justify-between items-center hover:bg-green-50 transition cursor-pointer"
+            >
+              <div className="flex flex-col">
+                <p className="font-semibold text-gray-800">{b.display}</p>
+                <div className="flex gap-2 mt-1">
+                  <Badge className="bg-blue-100 text-blue-700">ICD: {b.icd}</Badge>
+                  <Badge className="bg-green-100 text-green-700">NAMASTE: {b.namaste}</Badge>
                 </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Trend Analysis */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Monthly Trends</CardTitle>
-          <CardDescription>
-            Encounter volume and dual coding rate over time
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ResponsiveContainer width="100%" height={400}>
-            <LineChart data={trendData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
-              <YAxis yAxisId="left" />
-              <YAxis yAxisId="right" orientation="right" />
-              <Tooltip />
-              <Bar yAxisId="left" dataKey="encounters" fill="hsl(var(--primary))" name="Encounters" />
-              <Line
-                yAxisId="right"
-                type="monotone"
-                dataKey="dualCoding"
-                stroke="hsl(var(--accent))"
-                strokeWidth={3}
-                name="Dual Coding %"
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
-
-      {/* System Health */}
-      <Card>
-        <CardHeader>
-          <CardTitle>System Health & Performance</CardTitle>
-          <CardDescription>
-            Real-time status of integrated terminology systems
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <div className="flex items-center justify-between p-4 border rounded-lg">
-              <div>
-                <p className="font-medium">NAMASTE API</p>
-                <p className="text-sm text-muted-foreground">Response: 120ms</p>
               </div>
-              <Badge variant="default">Online</Badge>
+              <p className="text-sm text-blue-400 font-bold">{new Date(b.savedAt).toLocaleString()}</p>
             </div>
-            <div className="flex items-center justify-between p-4 border rounded-lg">
-              <div>
-                <p className="font-medium">WHO Ayurveda</p>
-                <p className="text-sm text-muted-foreground">Response: 85ms</p>
-              </div>
-              <Badge variant="default">Online</Badge>
-            </div>
-            <div className="flex items-center justify-between p-4 border rounded-lg">
-              <div>
-                <p className="font-medium">ICD-11 TM2</p>
-                <p className="text-sm text-muted-foreground">Response: 95ms</p>
-              </div>
-              <Badge variant="default">Online</Badge>
-            </div>
-            <div className="flex items-center justify-between p-4 border rounded-lg">
-              <div>
-                <p className="font-medium">ICD-11 Bio</p>
-                <p className="text-sm text-muted-foreground">Response: 78ms</p>
-              </div>
-              <Badge variant="default">Online</Badge>
-            </div>
-          </div>
+          ))}
         </CardContent>
       </Card>
     </div>
