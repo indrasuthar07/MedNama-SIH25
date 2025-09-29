@@ -203,7 +203,7 @@ export default function ApiDocs() {
           ICD-11 / NAMASTE Disease Search Engine
         </p>
       </div>
-      <div className="bg-green-100 px-1 py-1 rounded-full text-green-700 font-semibold text-xs shadow-sm">
+      <div className="bg-green-100 px-1 py-1 rounded-full text-green-700 font-semibold text-sm shadow-sm">
         LIVE
       </div>
     </div>
@@ -217,7 +217,7 @@ export default function ApiDocs() {
         onChange={(e) => setSearchTerm(e.target.value)}
         className="pl-10 pr-4 py-3 border-gray-300 rounded-xl text-gray-700 "
       />
-      <Search className="absolute left-3 top-3.5 text-gray-400 w-5 h-5" />
+      <Search className="absolute left-3 top-2 text-gray-400 w-5 h-5" />
     </div>
 
     {/* Results */}
