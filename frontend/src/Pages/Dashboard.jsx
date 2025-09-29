@@ -25,14 +25,13 @@ export default function Dashboard() {
           />
         </div>
         <h1 className="text-5xl font-bold tracking-tight text-green-700">
-          National Healthcare EMR
+          NAMASTE ↔ ICD-11(TM2)
         </h1>
         <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
           Government of India's Integrated Electronic Medical Records System
         </p>
         <p className="text-lg text-gray-500 max-w-3xl mx-auto">
-          Empowering healthcare through standardized terminology management and dual coding compliance
-        </p>
+A secure, FHIR R4-compliant platform enabling dual coding of Ayush diagnoses using NAMASTE and ICD-11 (TM2), facilitating seamless claims processing and morbidity analytics.        </p>
         
         <div className="flex flex-wrap justify-center gap-3">
           <Badge variant="secondary" className="bg-blue-50 text-blue-700 px-3 py-1">NAMASTE Compliant</Badge>
