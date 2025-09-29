@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Activity, Database, Server, Zap, Layers } from "lucide-react";
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip } from 'chart.js';
+import { Activity, Database, Layers, Server, Zap } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -49,7 +49,7 @@ export default function Analytics() {
       const top = Object.entries(counts)
         .map(([name, count]) => ({ name, searches: count }))
         .sort((a, b) => b.searches - a.searches)
-        .slice(0, 5);
+        .slice(0, 7);
       setTopDiseases(top);
 
     } catch (err) {
