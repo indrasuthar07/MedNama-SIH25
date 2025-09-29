@@ -1,15 +1,15 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { useNavigate } from "react-router-dom";
-import { 
-  Stethoscope, 
-  Search, 
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Award,
   BarChart3,
-  Shield,
   Globe,
-  Award
-} from "lucide-react"
+  Search,
+  Shield,
+  Stethoscope
+} from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -34,9 +34,10 @@ export default function Dashboard() {
 A secure, FHIR R4-compliant platform enabling dual coding of Ayush diagnoses using NAMASTE and ICD-11 (TM2), facilitating seamless claims processing and morbidity analytics.        </p>
         
         <div className="flex flex-wrap justify-center gap-3">
-          <Badge variant="secondary" className="bg-blue-50 text-blue-700 px-3 py-1">NAMASTE Compliant</Badge>
-          <Badge variant="secondary" className="bg-teal-50 text-teal-700 px-3 py-1">WHO Ayurveda</Badge>
-          <Badge variant="secondary" className="bg-green-50 text-green-700 px-3 py-1">ICD-11 TM2</Badge>
+          <Badge variant="secondary" className="bg-gray-100 text-gray-600 px-3 py-1">FHIR Compliant</Badge>
+          <Badge variant="secondary" className="bg-green-50 text-green-700 px-3 py-1">Namaste Code</Badge>
+          <Badge variant="secondary" className="bg-green-50 text-green-700 px-3 py-1">ICD-11 TM2 Code</Badge>
+          <Badge variant="secondary" className="bg-green-50 text-green-700 px-3 py-1">Biomedical Code</Badge>
           <Badge variant="secondary" className="bg-gray-100 text-gray-600 px-3 py-1">ABHA Integrated</Badge>
         </div>
       </div>
