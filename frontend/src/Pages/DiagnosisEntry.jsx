@@ -72,41 +72,17 @@ export default function DiagnosisEntry() {
   const [notes, setNotes] = useState("")
   const [fhirPreview, setFhirPreview] = useState(null)
 
- useEffect(() => {
-  const controller = new AbortController()
-  const handler = setTimeout(async () => {
-    if (searchTerm) {
-      try {
-        const res = await fetch(
-          `http://localhost:5000/api/icd-search?q=${encodeURIComponent(searchTerm)}`,
-          { signal: controller.signal }
-        )
-        
-        if (!res.ok) return
-        const terms = await res.json()
-
-        // ✅ Only set results if query is still the same
-        setResults(
-          terms.filter((t) =>
-            t.display?.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-        )
-      } catch (err) {
-        if (err.name !== "AbortError") {
-          console.error("Error fetching:", err)
-        }
+  useEffect(() => {
+    const handler = setTimeout(async () => {
+      if (searchTerm) {
+        const terms = await fetchTerminologies(searchTerm)
+        setResults(terms)
+      } else {
+        setResults([])
       }
-    } else {
-      setResults([])
-    }
-  }, 400)
-
-  return () => {
-    clearTimeout(handler)
-    controller.abort() // cancel old request when typing continues
-  }
-}, [searchTerm])
-
+    }, 400)
+    return () => clearTimeout(handler)
+  }, [searchTerm])
 
   const addDiagn = async (term) => {
     if (!selected.find(d => d.code === term.code)) {
@@ -119,48 +95,60 @@ export default function DiagnosisEntry() {
     setSelected(selected.filter(d => d.code !== code))
   }
 
-  const buildFHIR = () => ({
-    resourceType: "Bundle",
-    type: "collection",
-    entry: selected.map(d => ({
-      resource: {
-        resourceType: "Condition",
-        code: {
-          coding: [
-            { system: d.system, code: d.code, display: d.display },
-            ...(d.dual?.map((m) => ({
-              system: "NAMASTE",
-              code: m.code,
-              display: m.display
-            })) || [])
-          ],
-          text: d.display
+ // Generate a FHIR Bundle with Conditions
+const buildFHIR = () => ({
+  resourceType: "Bundle",
+  type: "collection",
+  entry: selected.map((d, idx) => ({
+    resource: {
+      resourceType: "Condition",
+      id: `cond-${idx + 1}`, // unique id
+      clinicalStatus: "active",
+      verificationStatus: "confirmed",
+      code: {
+        coding: [
+          { system: "ICD-11", code: d.icd, display: d.display },
+          { system: "NAMASTE", code: d.namaste, display: d.display },
+          { system: "TM2", code: d.code, display: d.display },
+          { system: "Biomedicine", code: d.biomedical, display: d.biomedical_name }
+        ],
+        text: `${d.display} cross-system mapping`
+      },
+      note: [
+        {
+          text: "Mapped across ICD-11, NAMASTE, TM2, and Biomedicine."
         },
-        note: notes ? [{ text: notes }] : []
-      }
-    }))
-  })
+        ...(notes ? [{ text: notes }] : [])
+      ]
+    }
+  }))
+})
+
+// Dummy dual code fetcher (can be replaced with backend call)
 const fetchDualCodes = async (display) => {
   return searchTerm[display] ? [searchTerm[display]] : []
 }
-  const handlePreview = () => setFhirPreview(buildFHIR())
 
-  const handleSave = async () => {
-    const bundle = buildFHIR();
-    try {
-     const res = await fetch("http://localhost:5000/api/save-diagnosis", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(bundle),
-});
+// Preview FHIR JSON in UI
+const handlePreview = () => setFhirPreview(buildFHIR())
 
-      if (res.ok) alert("✅ Synced successfully with EMR");
-      else alert("❌ Failed to sync");
-    } catch (err) {
-      console.error(err);
-      alert("Error syncing with EMR");
-    }
-  };
+// Save FHIR JSON to backend
+const handleSave = async () => {
+  const bundle = buildFHIR()
+  try {
+    const res = await fetch("http://localhost:5000/api/save-diagnosis", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bundle),
+    })
+
+    if (res.ok) alert("✅ Synced successfully with EMR")
+    else alert("❌ Failed to sync")
+  } catch (err) {
+    console.error(err)
+    alert("Error syncing with EMR")
+  }
+}
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50 px-6 md:px-10 py-10 font-sans">
@@ -259,66 +247,80 @@ const fetchDualCodes = async (display) => {
 
     {/* Right: Selected + Notes */}
     <div className="space-y-8">
-      {/* Selected Diagnoses */}
-      <Card className="border-none bg-white shadow-md rounded-2xl">
-        <CardHeader className="border-b pb-3">
-          <CardTitle className="text-2xl font-bold text-green-700 flex items-center gap-2">
-            <NotebookPen className="w-6 h-6" /> Selected Diagnoses
-          </CardTitle>
-        </CardHeader>
+  {/* Selected Diagnoses */}
+  <Card className="border-none  bg-white shadow-lg rounded-2xl">
+    <CardHeader className="border-b pb-4">
+      <CardTitle className="text-2xl font-bold text-green-700 flex items-center gap-3">
+        <NotebookPen className="w-7 h-7" /> Selected Diagnoses
+      </CardTitle>
+    </CardHeader>
 
-        <CardContent>
-          {selected.length > 0 ? (
-            selected.map((d) => (
-              <div
-                key={d.icd}
-                className="border border-gray-100 bg-gray-50 rounded-lg p-3 mb-2 flex justify-between items-center"
-              >
-                <div >
-                  <p className="font-semibold text-gray-800 text-sm">
-                    {d.display}
+    <CardContent className="pt-6 mb-4">
+      {selected.length > 0 ? (
+        <div className="space-y-4">
+          {selected.map((d) => (
+            <div
+              key={d.icd}
+              className="border border-gray-200 bg-gray-50 rounded-xl p-4 flex justify-between items-start shadow-sm hover:shadow-md transition"
+            >
+              {/* Left Content */}
+              <div className="flex-1">
+                <p className="font-semibold text-gray-800 text-base mb-2">
+                  {d.display}
+                </p>
+
+                {/* Codes Section */}
+                <div className="flex flex-wrap gap-6 text-sm text-gray-600">
+                  <p>
+                    <span className="font-bold text-blue-700">ICD 11 TM2:</span> {d.icd}
                   </p>
-                  <div className="flex">
-                      <p className="text-xs text-gray-500">
-                          <span className="font-bold text-blue-700">ICD 11 TM2:</span> {d.icd}
-                        </p>
-                        <p className="text-xs text-gray-500 ml-5">
-                          <span className="font-bold text-green-700">NAMASTE:</span> {d.namaste}
-                        </p>
-                        <p className="text-xs text-gray-500 ml-5">
-                          <span className="font-bold text-red-700">BIOMEDICAL:</span> {d.biomedical}
-                        </p>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-2">
-                        <span className="font-bold text-black">BIOMEDICAL NAME:</span> {d.biomedical_name}
-                      </p>
-                      <p className="text-xs text-gray-500 mt-2">
-                        <span className="font-bold text-black">DESCRIPTION:</span> {d.description}
-                      </p> 
-                  {d.dual?.length > 0 && (
-                    <p className="text-xs text-green-600 mt-1">
-                      Dual-coded: {d.dual[0].display} ({d.dual[0].icd})
-                    </p>
-                  )}
+                  <p>
+                    <span className="font-bold text-green-700">NAMASTE:</span> {d.namaste}
+                  </p>
+                  <p>
+                    <span className="font-bold text-red-700">BIOMEDICAL:</span> {d.biomedical}
+                  </p>
                 </div>
 
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="text-green-700 border-green-400"
-                  onClick={() => removeDiagn(d.code)}
-                >
-                  Remove
-                </Button>
+                {/* Biomedical Name */}
+                <p className="text-sm text-gray-600 mt-3">
+                  <span className="font-semibold text-gray-800">Biomedical Name:</span> {d.biomedical_name}
+                </p>
+
+                {/* Description */}
+                <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+                  <span className="font-semibold text-gray-800">Description:</span> {d.description}
+                </p>
+
+                {/* Dual Coded */}
+                {d.dual?.length > 0 && (
+                  <p className="text-sm text-green-600 mt-2">
+                    <span className="font-semibold">Dual-coded:</span> {d.dual[0].display} ({d.dual[0].icd})
+                  </p>
+                )}
               </div>
-            ))
-          ) : (
-            <p className="text-gray-500 italic text-center py-6">
-              No diagnoses selected
-            </p>
-          )}
-        </CardContent>
-      </Card>
+
+              {/* Remove Button */}
+              <Button
+                size="sm"
+                variant="outline"
+                className="ml-4 text-green-700 border-green-400 hover:bg-green-50"
+                onClick={() => removeDiagn(d.code)}
+              >
+                Remove
+              </Button>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-500 italic text-center py-8">
+          No diagnoses selected
+        </p>
+      )}
+    </CardContent>
+  </Card>
+
+
 
       {/* Clinical Notes */}
       <Card className="border-none bg-white shadow-md rounded-2xl">
