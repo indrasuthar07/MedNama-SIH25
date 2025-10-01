@@ -36,7 +36,6 @@ const matches = dualMap
     return 0; // keep original relative order otherwise
   });
 
-
   res.json(matches);
 });
 
