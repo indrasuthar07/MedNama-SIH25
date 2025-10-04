@@ -20,7 +20,6 @@ mongoose.connect(MONGO_URI, {
 .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // Define Mongoose Schema & Model for FHIR bundles
-// Collection = "Disease"
 const diseaseSchema = new mongoose.Schema({
   bundle: { type: Object, required: true },
   savedAt: { type: Date, default: Date.now },
