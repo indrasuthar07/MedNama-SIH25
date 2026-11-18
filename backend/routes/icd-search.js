@@ -1,42 +1,28 @@
 import express from "express";
-import fs from "fs";
-import path from "path";
+import { searchTerminology } from "../services/terminology-service.js";
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  const q = req.query.q?.toLowerCase() || "";
+  const q = String(req.query.q || "").trim();
   if (!q) return res.json([]);
-
-  let dualMap = [];
   try {
-    // Make sure this path matches your backend folder structure
-    const dataPath = path.join(process.cwd(), "Data", "data.json");
-    dualMap = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+    const results = searchTerminology({ query: q, limit: 50 });
+    return res.json(results.flatMap((concept) => concept.mappings.map((mapping) => ({
+      code: mapping.targets.find((target) => target.system === "ICD-11-TM2")?.code || mapping.id,
+      icd: mapping.targets.find((target) => target.system === "ICD-11-TM2")?.code || "",
+      namaste: mapping.namasteCode,
+      display: mapping.namasteDisplay || concept.preferredTerm,
+      biomedical: mapping.targets.find((target) => target.system === "BIOMEDICAL")?.code || "",
+      biomedical_name: mapping.targets.find((target) => target.system === "BIOMEDICAL")?.display || "",
+      description: mapping.evidence.note,
+      confidence: mapping.confidence,
+      confidenceReason: mapping.confidenceReason,
+      reviewStatus: mapping.review.status,
+    }))));
   } catch (err) {
-    console.error("Error reading data.json:", err);
-    return res.status(500).json({ error: "Failed to read data.json" });
+    return res.status(500).json({ error: "Failed to search terminology" });
   }
-
-const matches = dualMap
-  .filter(
-    (d) =>
-      (d.icd?.toLowerCase() || "").includes(q) ||
-      (d.biomedical?.toLowerCase() || "").includes(q) ||
-      (d.namaste?.toLowerCase() || "").includes(q) ||
-      (d.biomedical_name?.toLowerCase() || "").includes(q) ||
-      (d.display?.toLowerCase() || "").includes(q) ||
-      (d.description?.toLowerCase() || "").includes(q)
-  )
-  .sort((a, b) => {
-    const aDisplay = (a.display || "").toLowerCase();
-    const bDisplay = (b.display || "").toLowerCase();
-    if (aDisplay.startsWith(q) && !bDisplay.startsWith(q)) return -1;
-    if (!aDisplay.startsWith(q) && bDisplay.startsWith(q)) return 1;
-    return 0; // keep original relative order otherwise
-  });
-
-  res.json(matches);
 });
 
 export default router;

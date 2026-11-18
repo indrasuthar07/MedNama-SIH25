@@ -4,20 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "start": "node server.js"
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "ingest:terminology": "node scripts/ingest-terminology.js",
+    "test": "node --test test/terminology-service.test.js"
   },
   "dependencies": {
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "fuse.js": "^7.1.0",
+    "helmet": "^8.1.0",
     "mongoose": "^8.18.1",
     "node-fetch": "^3.3.2",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "xlsx": "^0.18.5",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
