@@ -11,7 +11,8 @@ import {
   ShieldCheck,
   LogOut,
   UserCircle,
-  Code2Icon
+  Code2Icon,
+  ClipboardCheck,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -23,6 +24,7 @@ const navigationItems = [
   { title: "Patient Search", url: "/patients", icon: Users },
   { title: "Diagnosis Search", url: "/diagnosis", icon: Stethoscope },
    { title: "API Docs", url: "/api", icon: Code2Icon },
+  { title: "Review Queue", url: "/terminology-review", icon: ClipboardCheck },
   { title: "Analytics", url: "/analytics", icon: BarChart3 },
  
 ]

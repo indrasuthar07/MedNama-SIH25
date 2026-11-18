@@ -45,6 +45,7 @@ import PatientSearch from "./Pages/PatientSearch";
 import DiagnosisEntry from "./Pages/DiagnosisEntry";
 import Analytics from "./Pages/Analytics";
 import ApiDocs from "./Pages/Api-docs";
+import TerminologyReview from "./Pages/TerminologyReview";
 
 const queryClient = new QueryClient();
 
@@ -62,6 +63,7 @@ const App = () => (
           <Route path="patients" element={<PatientSearch />} />
           <Route path="diagnosis" element={<DiagnosisEntry />} />
           <Route path="analytics" element={<Analytics />} />
+          <Route path="terminology-review" element={<TerminologyReview />} />
         </Route>
 
         {/* Catch-all for 404 */}
